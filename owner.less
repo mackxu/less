@@ -1,0 +1,246 @@
+// 外罩通用的模板命名空间
+// 类名最多嵌套不要超过3层
+// 类名不能过度依赖HTML结构
+.owner-banner { 
+    background: url(../images/ucenter-topbg.png) no-repeat; 
+    background-size: 100% 100%; 
+    height: 210px; width: 100%; 
+    .palt(0,0);
+    .border-bottom;
+}
+
+// 包裹框的特殊指定
+.owner-container { margin-top: 68px; }
+// 个人中心主体部分
+// 默认字体大小为13px
+// 最小高度为700px
+.owner-main {
+    .fr;
+    width: 788px;
+    min-height: 720px;
+    padding-left: 51px;
+    padding-bottom: 87px;
+    font-size: 13px;
+    border-left: 1px solid @graydf;
+    .header { padding-top: 40px; }
+    .description { margin-bottom: 60px; line-height: 1.8; color: @gray51; }
+    .voucher-add { 
+        margin-bottom: 60px;
+        .input { .size(242px, 28px); }  
+    }
+
+    .filter { margin-bottom: 40px;  
+        a { color: @gray66; display: inline-block; .plr(15px, 16px); line-height: 14px;
+            &:hover, &.checked { color: @green22; }
+            & + a { border-left: 1px solid @graydf; } 
+        }
+    }
+    // 定义表格的样式
+    tbody tr:hover { background-color: #f8f8f8; }
+    th { font-weight: normal; color: #707070; line-height: 40px; border-bottom: 1px solid @graydf; background-color: #f5f5f5; }
+    // 默认左右居中
+    td { 
+        .tc; .ptbe(20px); line-height: 1.8em; border-bottom: 1px solid @graydf;       
+        a { color: @green22 }
+    }
+    .t-tl { .tl; padding-left: 20px; }
+    .t-tr { .tr; padding-right: 20px; }
+    .transport, .transport:hover { background-color: #f5f5f5; }
+    .transport {
+        td { .ptbe(10px); }
+        span { color: @gray66; .pr; .triangle(40%, -24px, @graydf, 10px); .triangle-off; }
+        a { .pr; padding-right: 14px; .triangle(0, 30%, @green22); }
+    }
+    // 用于订账单号
+    .order-id { .tl; font-size: 14px; letter-spacing: 0.2em;
+        .shop-imgs {
+            width: 150px;
+            height: 30px;
+            overflow: hidden;
+        }
+     }
+    // 代金券面值 div.voucher-value
+    .voucher-value { 
+        width: 70px; line-height: 50px; .border(@graydf); margin-left: 10px;
+        strong { font-size: 1.8em; } 
+    }
+    .voucher-name { padding-left: 20px; .tl; }
+    // 商品评价
+    // 采用图片占一个td的做法
+    .p-show, .p-info { vertical-align: top; }
+    .p-info { .t-tl; .font(@gray66, 12px); width: 360px; }
+    .p-title { .font(@gray30, 13px); }
+
+    // 订单详情页
+    .order-header {
+        .clearfix;       
+        margin-bottom: 20px;
+        >div { 
+            line-height: 34px;              // 与.btn的行高一致 
+            font-size: 14px; 
+            >span { .number(@green22, 16px); } 
+        }
+        .btn { 
+            line-height: 34px;
+            .plre(18px);
+            font-size: 14px;
+            & + .btn { margin-left: 14px; }
+        }
+    }
+    .order-content { 
+        .clearfix; 
+        border-bottom: 2px solid @graydf; border-top: 2px solid @graydf; 
+        padding-top: 20px;
+        color: @gray66; 
+        margin-bottom: 60px; 
+    }
+    .order-info { .fl; width: 396px;
+        >li { 
+            .fl; width: 228px; min-height: 80px; margin-bottom: 20px;
+            div { color: @gray30; margin-bottom: 6px; } 
+        }
+        .item-b { width: 168px; }
+    }
+    .order-count { 
+        .fr; width: 288px; border-left: 2px solid @graydf; padding-left: 52px;
+        >li { 
+            .clearfix;
+            .mtbe(10px);
+            >span { .fr; }
+            &.last { 
+                padding-top: 20px; border-top: 1px solid @graydf; color: @gray30;
+                >span { .number(@green22, 15px); font-weight: bold; } 
+            }
+        } 
+    }
+    .btn-group { 
+        .mtbe(20px); 
+        .btn + .btn { margin-left: 20px; }
+    }
+
+    // sns账号绑定
+    .leaf-sns {
+        .tc;
+        padding-top: 48px;
+        height: 290px;
+        .border(@graydf, 2px);
+        dl { .tl; padding-left: 70px; }
+        dt { color: @redd9; margin-top: 20px; }
+        dd { 
+            margin-top: 4px;   
+            a { .icon-chk; color: @gray51; }
+        }
+        // 绑定后的样式, 重写了一些类样式
+        &.selected {
+            .sns-name { color: @redd9; }
+            .btn { background-color: @graydf; }
+
+            .sns-sina { .icon-sns(-70px); }
+            .sns-qq { .icon-sns(-210px); }
+            .sns-renren { .icon-sns(-350px); }
+        }
+    }
+    // 登陆绑定的一些icon
+    .icon-sns(@t) { background: url(../images/sns-bind.png) 82px @t no-repeat; }
+    .sns-icon { height: 70px; }
+    .sns-sina { .icon-sns(0); }
+    .sns-qq { .icon-sns(-140px); }
+    .sns-renren { .icon-sns(-280px); }
+    .sns-name { .mtbe(10px); }
+
+    // 基本资料
+    .form-control .text-error { padding-left: 16px; }
+    .p-private {
+        h4 { margin-top: 40px; }
+        label { width: 100%; line-height: 32px; }
+        input { height: auto; }
+    }
+
+    .p-sex {
+        width: 48px;
+        input { height: auto; }
+    }
+
+    .p-phone { width: 200px; }
+
+    .profile-btn { .pr; .tr; padding-right: 168px; 
+        >span { .palt(586px, 14px) }
+    }
+
+}
+
+.owner-sidebar {
+    .fl;
+    .pr;
+    margin-left: 48px;
+    width: 150px;
+    padding-top: 90px;
+    dl { width: 120px; border-bottom: 1px solid @graydf; padding-bottom: 40px; margin-bottom: 40px; 
+        &:last-child { border-bottom: none; }
+    }
+    dt { margin-bottom: 20px; }
+    dd { padding-left: 1.2em; & + dd { margin-top: 10px; } }
+    a { .pr; color: @gray66;  
+        &:hover, &.checked { color: @green22; }
+        strong { .number; .palt(-1em, -2px); }
+    }
+    .avatar { .palt(auto, -52px); }
+}
+
+// 其用户喜欢
+.like-anthor {
+    margin-top: -20px;
+    .sns-bind {
+        .dib-wrap;
+        margin-top: 14px;
+        span {
+            .size(33px, 19px);
+            margin-right: 6px;
+            .dib;
+            &.sns-a { .icon-sns-bind(-32px, -432px) }
+            &.sns-b { .icon-sns-bind(-30px, -462px) }
+            &.sns-c { .icon-sns-bind(-30px, -492px) }
+        }
+    }
+}
+
+//常见问题页面
+.faq-banner {
+    background:none;
+    background-color:#f6f6f6;
+    h1 {
+        padding-top:120px;
+        padding-left: 46px;
+        font-weight:normal;
+        font-size:16px;
+    }
+}
+
+.faq-main {
+    padding-top:80px;
+    border:none;
+    h3 {
+        padding-bottom:15px;
+        border-left:none;
+        padding-left:0 !important;
+        font-weight:normal;
+    }
+    .articlebox {
+        line-height:26px;
+        padding-bottom:35px;
+        color:#666;
+        b {color:#303030;font-weight:normal;}
+    }
+}
+
+.faq-sidebar {
+    padding-top: 54px;
+    border-right: 1px solid #DFDFDF;
+    dd { padding-left: 1.2em; & + dd { margin-top: 20px; } }
+}
+.article-main{
+    float: none;
+    width: 988px;
+    border:none;
+
+}

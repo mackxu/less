@@ -1,0 +1,237 @@
+//
+// Scaffolding
+// --------------------------------------------------
+
+
+// Reset the box-sizing
+
+*,
+*:before,
+*:after {
+  .box-sizing(border-box);
+  -webkit-font-smoothing: antialiased;
+}
+
+
+// Body reset
+
+html {
+  font-size: 62.5%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  font-family: @font-family-base;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  color: @text-color;
+  background-color: @body-bg;
+}
+
+// Reset fonts for relevant elements
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  outline: none;
+}
+
+input, button { padding: 0; border: none; }
+
+
+
+// reset margin, padding
+body, ul, ol, li, p, dl, dt, dd {
+  padding: 0;
+  margin: 0;
+}
+
+ul, ol { list-style: none; }
+
+
+// Links
+
+a {
+  color: @link-color;
+  text-decoration: none;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    color: @link-hover-color;
+  }
+
+  &:focus {
+    .tab-focus();
+  }
+}
+
+
+// Images
+
+img {
+  vertical-align: middle;
+}
+
+a img { border: none; }
+
+// Responsive images (ensure images don't scale beyond their parents)
+.img-responsive {
+  .img-responsive();
+}
+
+
+// Perfect circle
+.img-circle {
+  border-radius: 50%; // set radius in percents
+}
+
+
+// Horizontal rules
+
+hr {
+  margin-top:    @line-height-computed;
+  margin-bottom: @line-height-computed;
+  border: 0;
+  border-top: 1px solid @hr-border;
+}
+
+table { width: 100%; }
+
+
+// Only display content to screen readers
+//
+// See: http://a11yproject.com/posts/how-to-hide-content/
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+.none { display: none; }
+
+
+// 去除 inline-block 空隙终极解决方案
+// http://ued.taobao.org/blog/2012/08/inline-block/
+
+.dib-wrap {
+    font-size:0;/* 所有浏览器 */
+    *word-spacing:-1px;/* IE6、7 */
+}
+.dib{
+    font-size: 13px;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align:top;
+}
+@media (-webkit-min-device-pixel-ratio:0){
+    /* firefox 中 letter-spacing 会导致脱离普通流的元素水平位移 */
+    .dib-wrap{
+        letter-spacing:-5px;/* Safari 等不支持字体大小为 0 的浏览器, N 根据父级字体调节*/
+    }
+}
+.dib {
+    display: inline-block;
+    *display:inline;
+    *zoom:1;
+}
+
+// 清除浮动
+.clearfix { .clearfix() }
+
+// Alignment
+.text-left           { text-align: left; }
+.text-right          { text-align: right; }
+.text-center         { text-align: center; }
+// float
+.fl { float: left; }
+.fr { float: right; }
+
+// 文字的定位
+.tl { .text-align(left) }
+.tc { .text-align(center) }
+.tr { .text-align(right) }
+
+// 按钮样式
+.btn, .btn:hover { color: #fff !important; }
+.btn { display:inline-block; background-color: @green3e; font-size: 16px; line-height: 44px; .plre(42px); }
+.btn-md { line-height: 34px; .plre(16px); font-size: 14px; }
+.btn-sm { line-height: 28px; .plre(16px); font-size: 13px; }
+.btn-gray { background-color: #d9d9d9; }
+.btn-load { .text-hide;  }
+
+.btn-loading {
+  position:relative;
+  .onloading {
+      position: absolute;
+      top: 0;
+      background-color: inherit;
+      height: 100%;
+      //width: 100%;
+
+      .sloading {
+        position:relative;
+        top:48%;
+        margin:0 auto;
+        height: 100%;
+        width: 40px;
+        >div {
+            height:5px;
+            width:5px;
+        }
+      }
+  }
+}
+
+
+// 超链接样式
+.goto, .active { &, &:hover { color: @green22 } }
+.goto-btn { &, &:hover { color: @green3e } }
+
+.input { 
+  .border(@grayed, 2px); width: 148px; padding: 9px;
+  &:focus { border-color: @green3e; outline:none; }
+  &.input-error { border-color: @redff; } 
+}
+
+// 带有绿色左边框的h3标题
+.header { margin-bottom: 40px;  
+    >h3 { .font(@gray51, 14px); .mtbe(0); line-height: 18px; border-left: 4px solid @green3e; padding-left: 8px; }
+}
+
+// 提示字体的颜色列表
+.text-error { color: @redd9; }
+.text-success, .text-warn { color: @green22; }
+.text-disabled, .text-default { color: @gray66 }
+
+// 颜色筛选
+.color11 { background-color: #ffd33a; }
+.color12 { background-color: #ec2f2f; }
+.color13 { background-color: #ff5692; }
+.color14 { background-color: #bd49a9; }
+.color15 { background-color: #2679a9; }
+.color16 { background-color: #00a742; }
+.color17 { background-color: #000; }
+.color18 { background-color: #e9e7ef; }
+.color19 { background-color: #eacd76; }
+.color20 { background-color: #ff6600; }
+.color21 { background-color: #aa672c; }
+.color22 { background-color: #999; }
+.color23 { background-color: #fff; }
+
+// 彩色色值
+.color24 { 
+  background: url(../images/rainbow-btn.png) 0 0 no-repeat; 
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#ccc),to(#999));
+  background:-webkit-gradient(linear,left top,right top,from(#2A8BBE),color-stop(0.33,#AAD010),color-stop(0.66,#FF7F00),to(#FE280E)); 
+  background-image:-moz-linear-gradient(top,#ccc,#999);  
+}

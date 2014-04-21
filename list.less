@@ -1,0 +1,208 @@
+// 可把这些less按模块拆分
+
+/**
+ * 列表页和专题页
+ */
+
+// 列表页中的商品表单，默认显示，可隐藏
+.list-handle {
+    padding-bottom: 40px;
+    .clearfix;
+    >.menubar {
+        .fl;
+        .pr;
+        width: 160px;
+        margin-right: 92px;
+        .border(@graydf, 2px);
+        text-align: center;
+        padding: 6px 0;      
+        .triangle(10%, 40%);
+    }
+    .select, .search-desc, .list-info, { line-height: 32px; }
+    .select {
+        .fl; .pr; .triangle(10px, 40%); width: 160px; cursor: pointer; .plre(10px); .border(@graydf, 2px);
+        &:hover >ul { display: block; }
+        >ul {
+            display: none;
+            .pa; left: -2px; right: -2px; top: 32px; 
+            padding: 0 10px;
+            z-index: 1; 
+            .border(@graydf, 2px); 
+            font-size: 13px;
+            background-color: #fff; 
+        }
+        a { 
+            color: @gray30; display: inline-block; width: 100%; line-height: 28px; 
+            &:hover { color: @green22; background-color: @grayf6; } 
+        }
+    }
+    .search-desc, .list-info, .list-num { .fr; margin-left: 20px; }
+    .search-desc span { color: @green22; .plre(6px); }
+
+}// .list-handle
+
+// 商品的属性、分列表
+.list-menu {
+    >dt {
+        margin-bottom: 30px;
+    }
+    >dd {
+        padding-left: 16px;
+        margin-bottom: 60px;
+        >a {
+            text-decoration: none;
+            font-size: 13px;
+            color: @gray51;
+        }
+    }
+    .list {            
+        >a {
+            display: block;
+            padding-left: 24px;
+            .bg-icon(@check-position-left, @check-position-top);
+            &:hover {
+                background-position: @check-position-left @check-position-top + @check-var;
+            }
+            &.checked { background-position: @check-position-left @check-position-top + @check-var * 2 }
+            & + a {
+                margin-top: 20px;
+            }
+
+
+        }
+    }
+    .color {
+        width: 232px;
+        padding-left: 8px;
+        >a {
+            display: inline-block;
+            margin-left: 8px;
+            border: 1px solid @graydf;
+            margin-bottom: 4px;
+            &:hover, &.checked {
+                border-color: @green3e;
+            }
+        }
+    }
+    .color > a {
+        .square(32px);
+    }
+}// .list-menu
+
+.container-list { margin-left: @grid-col-width; margin-bottom: 87px; }
+// 商品罗列块
+.leaf {
+    padding-left:  (@grid-gutter-width / 2);
+    padding-right: (@grid-gutter-width / 2);
+    width: @grid-col-width;
+    float: left;
+    // Prevent columns from collapsing when empty
+    min-height: 1px;
+    .mb(40px);
+    position: relative;
+    .picon-1 {
+        display:block;
+        position: absolute;
+        height:72px;
+        width:74px;
+        background: url(../images/pinfoicon.png) 0 0 no-repeat;
+        &.picon-2 {
+            background-position: -74px 0;
+        }
+    }
+    // 商品展览样式
+    // .thumbnail { display: block; margin-bottom: 18px; }
+    .info {
+        font-size: @font-size-md;
+        margin-top: 18px;
+        >li { float: left; }
+        .title {  margin-bottom: 12px; width: 100%; }
+        .title>a { color: @gray51; font-size: @font-size-base; }
+        .price { line-height: 16px; }
+        .price-new, .price-old { font-weight: bolder; }
+        .price-new { .number; }
+        .price-old { .number(@graydf); }
+        .price-new:after { 
+            content: "|"; 
+            .plr(10px, 8px);
+            color: @graydf;
+        }
+        .like { 
+            float: right;
+            width: 60px; 
+            .number(@gray84); 
+            padding-right: 24px;  
+            text-align: right;
+            cursor: pointer; 
+            .icon-like;
+            &.checked { .icon-like-checked; }
+        }
+    }
+
+    
+}// .leaf
+
+// 定义专题页和品牌页
+.col-banner { 
+    .palt(0, 0); right: 0;
+    .tc;
+    height: 426px;
+    padding-top: 320px;
+    background: center top no-repeate;
+    color: #fff;
+    >div { font-size: 16px; line-height: 1.8em; }
+    strong { font-size: 18px; }
+}
+// 由于顶部已经有了142px高度
+.col-header, .brand-header { .mtb(350px, 60px); .font(@gray66, 13px); line-height: 1.8em; .clearfix; }
+.col-header-a { .fl; width: 480px; }
+.col-header-b { 
+    .fr; width: 424px; 
+    .say { padding-right: 64px; margin-bottom: 20px }
+    .info {  
+        .fr; line-height: normal;
+        >img { .fl; .border; margin-top: 3px; }
+        >div { padding-left: 46px; }
+    }
+    .info-name { .font(@gray30, 14px); } 
+}
+.brand-header { .pr; margin-top: 320px; min-height: 60px;  }
+.brand-desc { padding-left: 252px; }
+.brand-card { .palt(52px, -100px); width: 120px; .tc; line-height: normal; }
+.brand-card__item {
+    margin-bottom: 4px;
+    img { .border(@graydf); .square(120px); }
+    strong { .font(@gray30, 14px); }
+    span { .font(@gray84, 12px); }
+}
+.col-content, .brand-content {
+    .row { margin-bottom: 20px; } 
+}
+
+.brand-content__header {
+    .pr;
+    margin-bottom: 40px;
+    .select {
+        .list-handle > .select;
+        .part(0, -6px);
+        .font(@gray51, 13px);
+        line-height: 28px;
+        width: 126px;
+        ul { top: 27px; }
+    }
+}
+
+
+// 分页样式
+.pagination { 
+    .mtb(20px, 60px);
+    .fr;
+    a { 
+        .number(@gray30, 14px);   display: block; font-weight: bolder;
+    }
+    span { 
+        .fl; color: @graydf; margin-left: 14px; .border(@graydf); padding: 4px 8px 2px;
+        &:hover a, &.checked a { color: @green22; }
+        &.checked { .border(@green3e); } 
+    } 
+}

@@ -1,0 +1,34 @@
+
+// Set the container width, and override it for fixed navbars in media queries
+.container {
+    .container-fixed();
+    width: @container-lg;    
+    @media (max-width: @screen-md) {
+        width: @container-md;
+    }
+    @media (max-width: @screen-sm) {
+        width: @container-sm;
+    }
+}
+
+// mobile first defaults
+.row {
+  .make-row();
+}
+
+
+// 定义特定尺寸下的显示和隐藏
+.hide-md { @media (max-width: @screen-md) { display: none !important; } }
+
+.hide-sm { @media (max-width: @screen-sm) { display: none !important; } }
+
+.visible-md { 
+
+}
+
+// 固定988px
+.w988 {
+    .container-fixed;
+    width: @container-md;
+}
+

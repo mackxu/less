@@ -1,0 +1,376 @@
+// 购物车样式
+
+.cart-info { line-height: 52px; background-color: #ff695d; margin-top: -60px; 
+    .info-content {
+        .tc;
+        .pr;
+        >span { 
+            .font(#fff, 13px); line-height: 18px;
+            &:before { content: ""; width: 20px; height: 18px; display: inline-block; .bg-icon(-340px, -220px); margin-right: 6px; margin-bottom: -4px; } 
+        }
+        >a { .pa; right: 0; top: 50% - 12px; .square(16px); .bg-icon(-80px, -120px); .text-hide;  }
+    }
+}
+
+// 购物的一二三步走
+.process {
+    .green() { color: @green22; }
+    margin-bottom: 60px;
+    .clearfix;
+    .one, .two, .three { width: 988px / 3; .fl; .font(#c2c2c2, 16px); }
+    .one { .green; }
+    .two { .tc; }
+    .three { .tr; }
+    .flow { background: url(../images/flow.png) no-repeat 0 0; height: 10px; width: 100%; .fl; margin-top: 12px; }
+    &.second { 
+        .two { .green; }
+        .flow { background-position: 0 -10px; }
+    }
+    &.third {
+        .two, .three { .green; }
+        .flow { background-position: 0 -20px; }
+    }
+}
+
+
+#cart-main {
+    .cart-header {
+        .clearfix;
+        margin-bottom: 14px;
+        line-height: 44px;
+        h2 {
+            .fl;
+            font-size: 16px;
+            line-height: 18px;
+            border-left: 4px solid @green3e;
+            padding-left: 8px;
+            font-weight: normal;    
+        }
+        .spend {
+            .fr;
+            >strong { 
+                .number;
+                &.text-disabled { .text-disabled; } 
+                >em { font-style: normal; }
+            }
+            >button {
+                line-height: 28px;
+                .plre(10px);
+                .font(#fff, 13px);
+                background-color: @green3e;
+                &.btn-gray { .btn-gray; }
+            }
+        }
+    }
+    // 购物车的提交按钮
+    .cart-footer {
+        .clearfix;
+        line-height: 44px;
+        margin-bottom: 60px;
+        >a { .fl; color: @green22; }
+        .spend {
+            .fr;
+            >button {
+                .plre(38px);
+                .font(#fff, 16px);
+                background-color: @green3e;
+                &.btn-gray { .btn-gray }
+            }
+        }
+
+    }
+    // 订单
+    .order {
+        margin-bottom: 32px;
+        .order-header, .order-footer { .clearfix; background-color: @grayf6; }
+        .th-chk, .td-chk { width: 50px; }
+        .th-info, .td-info { width: 492px; }
+        .th-price, .td-price { width: 150px; }
+        .th-amount, .td-amount { width: 180px; }
+        .th-sum, .td-sum { width: 110px; }
+        .th-chk, .th-sum, .td-sum, .td-chk { .tr !important; }
+        .td-price, .td-amount { .tc; }
+        
+        a { color: @gray30; }
+        // 订单的标题描述
+        .order-header {
+            line-height: 54px;
+            border-bottom: 1px solid @graydf;
+            font-size: 13px;
+            >li { .fl; .tc; }
+            
+            .th-chk {  
+                >a { .icon-chk; }
+            }
+        }
+
+
+        // 设计师样式，可点击
+        .designer  { 
+            .mtbe(20px);
+            >a { .icon-chk }
+            &.checked a { .icon-chk-checked; }
+        }
+        // 每一条订单的信息
+        .order-item { 
+            .ptbe(20px); 
+            .clearfix;
+            .pr; 
+            border-bottom: 1px solid @graydf;
+            >li { .fl; min-height: 100px; }
+            .td-chk>a { .icon-chk; }
+            .td-info {
+                .clearfix;
+                >a { .fl; }
+                img { .square(100px) }
+                >dl { padding-left: 110px; 
+                    >dd { font-size: 12px; margin-top: 4px; }
+                } 
+            }
+            .td-price { .number(@gray30); }
+            .td-sum { .number(@gray66) }
+            .td-amount {                
+                .item-amount { width: 96px; .mlre(auto); .clearfix; }
+                a, input { .fl; .border; height: 26px; }
+                a { width: 28px; line-height: 24px; 
+                    &.minus { background-color: #fff; }
+                    &.plus { background-color: #f6f5f5; }
+                }
+                input { font-size: 12px; border-left: none; border-right: none; width: 40px; text-align: center;}
+
+                // 文字提示信息: .text-warn仓库剩余2件,.text-error库存不足
+                .amount-msg { .tc; font-size: 12px; margin-top: 50px; }
+            }
+            // 被选中状态
+            &.checked {
+                background-color: @grayf6;
+                .td-chk>a { .icon-chk-checked; }
+            }
+
+            // 删除图标操作
+            .item-delete { .pa; right: 32px; top: 100px; .aicon-delete; }
+            // 鼠标悬浮到单条订单时，高亮删除按钮
+            &:hover .item-delete { background-position: -120px -120px; } 
+        }
+        // 订单的结算
+        .order-footer {
+            line-height: 87px;
+            .footer-aside { .fl; padding-left: 20px;  
+                >span { .number; }
+            }
+            .footer-bside { .fr; padding-right: 20px; 
+                >span { .number(@gray30); }
+                >strong { 
+                    .number(@green3e, 20px); 
+                    &.text-disabled { .text-disabled; } 
+                }
+            }
+        }
+       
+    }
+
+    // 购物车为空时
+    .order-empty { 
+        .tc; .mtbe(160px);
+        >p { .mtb(20px, 34px); letter-spacing: 0.2em; } 
+    }
+    .icon-order-empty { height: 197px; background: url(../images/order-empty.png) center center no-repeat; }  
+}
+
+// 定义凑单样式
+.match { 
+    a { color: @gray30; }
+    font-size: 13px;
+    margin-bottom: 87px;
+}
+.match-header {
+    .pr;
+    margin-bottom: 30px;
+    h4 { font-weight: normal; font-size: 14px; line-height: 28px; }
+    .select { 
+        .list-handle > .select; 
+        float: none; 
+        .part(0, 0);
+        width: 166px;
+        line-height: 28px;
+        padding-right: 28px;
+        ul { top: 28px; padding: 0; }
+        a {
+            padding-left: 66px;
+            &:hover { background-color: @grayf6; }
+        } 
+    }
+}
+    
+.leaf-match { 
+    .fl; .pr; .mlre(10px);
+    .square(148px); margin-bottom: 20px;
+    
+    &:hover {
+        img { 
+            .blur(6px); 
+            .opacity(0.3); }
+        .leaf-info { display: block; }
+    }
+}
+.leaf-info { 
+    display: none;
+    .palt(0, 0); right: 0; bottom: 0; 
+    1background-color: #eee; 
+    1background-color: rgba(255,255,255,0.6);
+    padding: 12px 10px 0;
+    strong { .number; }
+    div { margin-bottom: 5px; }
+}
+
+.match-footer {
+    .tr;
+    .dib-wrap;
+    a { 
+        .dib; .border(@graydf); padding: 4px 8px; margin-left: 20px;
+        &:hover { border-color: @green3e; color: @green22; }  
+    }
+}
+
+
+// ==========================================
+// 确认订单
+
+// 对设计师的留言
+.guestbook { margin-bottom: 60px;
+    table { .font(@gray30, 13px); }    
+    .price, .amount, .sum { width: 150px; }
+    .info { .tl; }
+    .sum { .tr; padding-right: 4px;}
+    .price, .amount { .tc; }
+    thead { background-color: @grayf6; line-height: 55px; 
+        th { font-weight: normal; color: @gray66;}
+    }
+    tr { border-bottom: 1px solid @graydf; }
+    .designer { border: none; }
+    .message { background-color: #f7f7f7; 
+        td:first-child { padding-left: 6px; .pr; .triangle(630px, -10px, @graydf, 10px); .triangle-off; }
+        .sum { .number; }
+        textarea { display: inline-block; width: 498px; min-height: 32px; .border(@grayed, 2px); .plre(6px); font-size: 12px; } 
+    }
+    td {
+        padding: 20px 0; vertical-align: top;
+        &.info { .clearfix;
+            dl { padding-left: 10px; .fl; }
+            a { color: @gray30; }
+            dd { margin-top: 4px; 
+                .font(@gray51, 12px);
+                a { color: @gray30; } 
+            }
+        }
+        
+    }
+    .designer td { padding-bottom: 0; }
+}
+
+.pay-method {}
+
+.clearing { 
+    margin-bottom: 32px; padding: 28px 20px 38px; .clearfix; 
+    font-size: 13px; background-color: @grayf6;
+    border-top: 1px solid @graydf; border-bottom: 1px solid @graydf;
+    li { line-height: 38px; }
+    .voucher { 
+        .fl;
+        span { line-height: normal; }  
+        input { .size(205px, 30px); font-size: 12px; }
+    }
+    .clearing-list { .fr;
+        li { .tr;
+            strong { width: 158px; display: inline-block; }
+            &.carriage > strong { .number; }
+            &.payment { .font(@gray30, 16px); strong { .number(@green3e, 20px); }}
+            &.buyer { line-height: 1.8; color: @gray66; margin-top: 20px; } 
+            
+        }
+    }
+}
+
+.clear-btns { .fr; margin-bottom: 60px;
+    .btn { margin-left: 20px; }
+}
+
+
+// ======================================================================
+// 完成订单
+// ======================================================================
+.btn-pay { .fr; .mtb(40px, 60px); }
+
+.pay-finish { 
+    .pr;
+    top: 60px;
+    margin: 0 auto 140px; 
+    background-color: #fcfcfc;
+    box-shadow: 0 4px 10px #888;
+    .payment>a { margin-right: 8px; }
+    >dt { 
+        .pa; top: -60px; left: 0; right: 0;
+        line-height: 60px; 
+        .tc; background-color: @grayf6; 
+        .font(@gray30, 16px);
+        border-top: 1px solid @graydf;  
+        border-bottom: 1px solid #fff;  
+        >strong { .number(@green3e, 20px); }
+    }
+    >dd { .mlre(164px); .ptbe(20px); border-bottom: 1px solid @graydf; .font(@gray51, 13px);
+        &:last-child { border: none; }
+        &.order-number{ .pr; line-height: 1.6;
+            >span { .number(@gray51); }
+            >ins { .pa; bottom: 20px; right: 0; text-decoration: none; color: #c3c3c3; }
+        }
+        >div { .clearfix; line-height: 1.8;
+            >span { .fr; .number(@gray51, 14px); }
+        }
+        >p { line-height: 26px; color: @gray66;
+            >span { display: inline-block; width: 70px; }
+            &.payment0 { 
+                .pr;
+                .triangle(46%, 38%, @green3e); .triangle-on;
+                span { margin-right: 140px; }
+                i { .pa; left: 70px; top: 0; }
+                a { color: @gray51; }
+            }
+        }
+        // 订单提交后单击显示选择其他支付方式
+        .extend { margin-top: 40px; .clearfix; display: none; }
+    }
+}
+
+
+
+.more-title { .font(#666, 13px); .mtb(10px, 20px) }
+// 罗列所有支付icon
+.payment { .clearfix;   
+    a { 
+        .fl; .btn-payment; margin-right: 30px; margin-bottom: 20px;
+        &.btn-payment-lg { .btn-payment(9px) } 
+    }
+}
+.kqian { .payment-lg(-40px) }
+.cfu { .payment-lg(-70px) }
+.taobao { .payment-lg(-100px); }
+.ylian { .payment-lg(-130px); }
+
+.zshang { .payment(-200px) }
+.pfa { .payment(-180px) }
+.gshang { .payment(-220px) }
+.nye { .payment(-240px) }
+.jshe { .payment(-280px) }
+.jtong { .payment(-340px) }
+.bjing { .payment(-260px) }
+.zguo { .payment(-300px) }
+
+.szhen { .payment(-360px) }
+.gfa { .payment(-380px) }
+.zxin { .payment(-400px) }
+.hxia { .payment(-420px) }
+.xye { .payment(-440px) }
+.yzheng { .payment(-320px) }
+
+
+// 凑单

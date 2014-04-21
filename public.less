@@ -1,0 +1,94 @@
+// 登陆，注册，404 等页面
+
+.lay-background { background: url('../images/lay-bg.jpg') center center; background-size: cover; .pf; bottom: 75px; z-index: -1; }
+.default-bkg {background: url('../images/default-bkg.jpg') center center; background-size: cover; .pf; bottom: 75px; z-index: 0; }
+.default-bkg-filter { background: url('../images/default-bkg-filter.jpg') center center; background-size: cover; .pf; bottom: 75px; z-index: 1; .opacity(0.6);}
+    
+
+.video-bg {
+    .pf; bottom: 75px; z-index: 0; 
+    width: 100%;            
+    video {
+        position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 2;            
+            //-webkit-transition: opacity 0.3s ease;
+            //transition: opacity 0.3s ease;
+        }
+    }
+
+.nobg { background:none !important; z-index:99999 !important; }
+.bgrelative {position: relative;}
+.loginvoerbg {background-color: #555 !important;background-color: rgba(39, 39, 39, 0.45)  !important; }
+
+.overlay-login { 
+    background-color: #333; 
+    background-color: rgba(39, 39, 39, 0.45); 
+    padding: 44px 60px; 
+    width: 725px; 
+    .container-fixed; 
+    margin-bottom: 20px;
+    color: #fff;
+    a { color: #fff; }
+}
+.login-title { 
+    .mb(10px); letter-spacing: 0.2em; .clearfix;
+    >img { .square(46px);  .fl; }
+    >span { line-height: 24px; padding-left: 12px; letter-spacing: normal; } 
+}
+.login-container { 
+    .pr; .clearfix;
+    & + p, p { 
+        letter-spacing: 0.2em; 
+        a { text-decoration: underline; } 
+    }
+    &.another { margin-top: 38px; } 
+}
+.login-gutter { .palt(300px, 0); .size(1px, 150px); background-color: @graydf; }
+.login-sns { 
+    width: 264px;
+    .fl;
+    >div { font-size: 12px; .mb(14px); }
+    a { .fl; .border(#d54545, 2px); width: 116px; line-height: 38px; padding-left: 48px; font-size: 13px; margin-right: 16px; margin-bottom: 12px; background-color: #fff; }
+    .login-weibo { .border(#d54545, 2px); color: #d33838; .icon-sns-bind(-23px, -422px); }
+    .login-QQ { .border(#0c84ea, 2px); color: #1c5789; .icon-sns-bind(-23px, -482px); }
+    .login-renren { .border(#5fdfff, 2px); color: #3eaac5; .icon-sns-bind(-23px, -452px); }
+}
+.login-email, .email-holder {
+    .input { 
+        .size(244px, 38px); .font(@green22, 13px); border-color: #838383;
+        & + .input { margin-top: 20px; }
+        &:focus { border-color: @green3e; } 
+    }
+    .submit { 
+        margin-top: 30px; .clearfix; line-height: 34px; .pr;
+        
+        .auto-login { .palt(0, 8px); .icon-chk; line-height: normal; } 
+    }
+    .forget { 
+        padding-right: 30px; background: url(../images/sns-bind.png) no-repeat 60px -500px;
+        &.forget-fr { .fr; background-position: 60px -508px; } 
+    }
+}
+
+.login-email { .fr; width: 245px; }
+.email-holder { 
+    .fl; width: 264px;
+    p { .mtb(30px, 38px); } 
+}
+
+.icon-checkbox { .icon-chk; }
+.checkbox { margin-bottom: 20px; }
+
+// 404
+.container-404 {  
+    width: 414px; margin-top: 80px; .tc; .container-fixed; color: #fff;
+    strong { font-size: 200px; display: block; line-height: 1.6em; }
+    p { font-size: 16px; font-weight: bold; line-height: 1.8em; .mb(20px); }
+    .btn + .btn { margin-left: 20px; }
+}
+
+

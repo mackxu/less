@@ -1,0 +1,720 @@
+
+/**
+ * 公共模块的样式
+ * 1. 页面头尾部分
+ * 2. 弹出层
+ * 3. 地址清单
+ */
+
+// 页面头部
+
+.header-a, .header-b { position: fixed; width: 100%; top:0; z-index: 8000; }
+.header-b { z-index: 7999; top: 46px; }
+
+// 由于头部成为固定定位，后面布局需要对应高度
+#header { height: 142px; } // 82px + 60px
+
+.header-a {
+    .clearfix;
+    padding-top: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    filter: ~"progid:DXImageTransform.Microsoft.gradient(startcolorstr=#c9000000,endcolorstr=#c9000000)"; /* IE5.5-7 */
+    .header-logo {.fl; .size(103px, 25px); .bg-icon(-240px, -40px); }
+    .nav {
+        .fr;
+        .clearfix;
+        margin-top: 4px;
+        >li {
+            .fl;
+            .menu-hd {
+                color: #eee;
+                >strong {
+                    background-color: @green3e;
+                    .plre(3px);
+                }
+            }
+            
+            
+            &.menu { height: 32px;
+                .pr;
+                .menu-list {
+                    display: none;
+                    .font(@gray30, 12px);
+                    .part(0, 32px);
+                    background-color: #fff;
+                    .border(#a9a9a9); border-top: none;
+                    // 绘制向上的三角
+                    .triangle(50% - 8px, -6px, #fff, 8px); .triangle-off;
+                }
+
+                &:hover {
+                    // 底部居中显示购物车
+                    //.menu-list { display: block; }
+                }
+            }
+            // 头部购物车
+            &.mini-cart {
+                .menu-hd>span { .icon-cart; padding-left: 24px; }
+                .menu-list { 
+                    right: -100px; width: 320px;
+                    overflow-y: auto;
+                    dl {
+                        div { .fl; }
+                        dt, dd { .clearfix;   }
+                        dt { padding: 15px 20px 4px 20px; font-size: 11px; border-bottom: 1px solid @graydf; }
+                        dd { 
+                            padding: 14px 20px; .font(@gray66, 12px); 
+                            // 当mini-cart中的商品列表hover，checked时
+                            &.item:hover, &.item.checked { background-color: @green3e; color: #fff; a,span { color: #fff !important; } } 
+                            &.mini-cart-sum { margin-left: 0; padding-left: 20px; background-color: #f0f0f0; font-size: 13px; }
+                            & + dd { border-top: 1px solid @graydf; }
+                        }
+                    }
+                    .th-info, .td-info { width: 184px; }
+                    .th-amount, .td-amount { width: 40px; .tc; }
+                    .th-sum, .td-sum { width: 54px; .fr; .tr; }
+
+                    .td-info {
+                        .clearfix;
+                        >a { .fl; }
+                        .info-list { padding-left: 12px; width: 132px;
+                            a { margin-bottom: 2px; color: @gray30; display: block; }
+                            span { .font(#909090, 11px); }
+
+                        }
+                    }
+                    // 立即结算按钮
+                    >a { width: 100%; .tc; }
+                }
+            }
+            // 用户登陆后的样式
+            &.my-nuandao {
+                .menu-hd>span { 
+                    .pr;
+                    .icon-avatar-mini;
+                    .plr(28px, 16px);
+                    .triangle(0, 40%);
+                    display: inline-block;
+                    max-width: 126px;
+                    .text-overflow;
+                }
+                img { .palt(0, 0); .square(20px); }
+                .menu-list {
+                    width: 132px;
+                    padding-top: 10px;
+                    a { 
+                        .pr;
+                        .font(@gray30, 12px);
+                        padding-left: 40px;
+                        line-height: 30px;
+                        display: block;
+                        &:hover { color: @green22; }
+                        span { .palt(12px, 7px); line-height: 18px; .font(#fff, 11px); width: 20px; .tc; background-color: @green3e;  }
+                    }
+                    .btn-logout { 
+                        background-color: #e9e9e9; border-top: 1px solid #d9d9d9; 
+                        width: 100%; line-height: 34px; 
+                        color: @gray30 !important;
+                        margin-top: 10px;
+                        .plre(0);
+                        .tc;
+                    }
+                }
+            }
+            // 用户未登录时，显示登陆按钮
+            &.btn-login { line-height: 22px; .border(#fff); .plre(8px); margin-top: -4px;
+                >a { .font(#fff, 13px); }
+            }
+        }
+        .site-nav-pipe { .plre(25px); color: #eee; }
+    }
+}
+
+.header-b {
+    border-bottom: 1px solid #c7c7c7;
+    background-color: #fff;
+    .pr;
+    .nav { .fl; 
+        >ul {
+            .clearfix;
+            >li { 
+                .fl;
+                padding-right: 24px; 
+                &:hover {
+                    .nav-item { display: block; }
+                    >a { color: @green22; border-bottom: 4px solid @green22; padding-bottom: 4px; }
+                }
+                >a { display: block; .ptbe(8px); color: @gray30; }
+            }
+        }
+    }// .nav
+    
+    // 导航的下拉层
+    .nav-item { 
+        display: none; 
+        .pa; left: 0; right: 0; top: 35px; 
+        background-color: #fff; .clearfix;
+        border-top: 1px solid #c7c7c7; 
+        border-bottom: 1px solid @graydf; 
+        h3 { .font(#a3a3a3, 14px); .mtb(40px, 28px); }
+        // 设置链接的颜色
+        a { color: @gray30; &:hover, &.checked { color: @green22; } }
+        .nav-list { .clearfix; .fl; width: 421px; min-height: 325px; border-right: 1px solid @grayed; padding-bottom: 20px;
+            .navbox {
+                float:left;
+                width: 120px;
+                >a { .fl; width: 120px; margin-right: 20px; margin-bottom: 10px; line-height: 30px; }
+            }
+            
+        }
+        .recommend { .fl; .clearfix;
+            h3 { margin-left: 90px; }
+            .recommend-nav { .fl;
+                >a { display: block; margin-left: 90px; width: 120px; margin-bottom: 20px; }
+            }
+            .recommend-show {.fl; width: 282px; padding-top: 4px;
+                >a { .fl; margin-bottom: 10px; margin-right: 10px; }
+            }
+        }
+        .nav-trend {
+            height:330px;
+            padding: 70px 0px 60px 0px;
+            margin: 0 auto;
+            width: 870px;
+            a {
+                display:block; height:200px;float: left; text-align:center; padding-top:168px; 
+                font-size:14px;
+                color:@gray-darker;
+                &:hover {
+                color:@green3e;
+                }
+            }
+
+            .nav-app{
+                width:137px; background: url(../images/nav-item-app.png) 0 20px no-repeat;
+                &:hover {
+                   background-position: -137px 20px;
+                }
+            }
+            .nav-lookbook {
+                width:143px;background: url(../images/nav-item-lookbook.png) 0 0 no-repeat; 
+                margin: 0 200px;
+                &:hover {
+                    background-position: -143px 0;
+                }
+            }
+            .nav-ndblog { 
+                width:187px; height:187px;background: url(../images/nav-item-ndblog.png) 0 10px no-repeat;
+                &:hover {
+                    background-position: -187px 10px;
+                }
+            }
+
+        }
+        
+    }
+
+    // 搜索样式
+    .search { 
+        .fr; 
+        line-height: 36px;
+        .plre(20px);
+        color: @gray30; 
+        border-left: 1px solid @graydf; border-right: 1px solid @graydf;
+        span { display: inline-block; padding-left: 30px; .icon-search-b; } 
+    } 
+}
+
+/*
+    搜索的弹出层
+    登陆弹出层
+ */
+.overlay-bg { position: fixed; top: 46px; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.8); }
+// 搜索的弹出层
+.overlay-search { 
+    display: none;
+    .overlay-bg;
+    z-index: 7998; top: 218px;  
+} 
+.content-search { 
+    background-color:#fff; background-color: rgba(255,255,255,0.8); .ptb(48px, 20px); .pr; top: -171px; 
+    .head { 
+        .pr; margin-left: 30px;
+        h2 { padding-left: 30px; .mtb(0, 20px); font-size: 16px; .icon-search-a; }
+        .hot { .palb(180px, 0); 
+            .goto + .goto { margin-left: 10px; }
+        }
+        
+    }
+
+    .input-search {         
+        margin-left: 60px;
+        .size(50%, 60px); 
+        font-size: 24px; 
+        border: none;
+        border-left: 4px solid #ccc;
+        background-color: transparent;
+        .placeholder(@gray66); 
+    }
+
+}
+.overlay-quit { .part(20px, 0); padding: 6px; .border; background-color: #eee;
+    i { display: block; .square(14px); .bg-icon(-140px, -120px); }
+}
+// 登陆弹出层
+.overlayLogin {
+    z-index:999;
+    .overlay-bg;
+    padding-top: 120px;
+    .overlay-login { background-color: #555; background-color: rgba(255,255,255,0.5); }
+    .overlay-title { .pr; };
+    .overlay-quit { .part(-60px, -80px); background-color: rgba(255,255,255,0.5);  }
+}
+
+// 找回密码
+.find-pwd { 
+    .mtb(60px, 30px); .tc; .pr;
+    .input { 
+        width: 408px; height: 44px;  margin-bottom: 20px; border-color: #838383;
+        &:focus { border-color: @green3e; } 
+    }
+    .output { .palt(100px, -20px); }
+
+    .find-success { 
+        line-height: 44px; .mb(10px); background: url(../images/pwd-success.png) 26% 0 no-repeat;  
+    } 
+}
+
+// 确认弹出层
+
+.overlay-confirm {
+    .overlay-bg;
+}
+.overlay-container {
+    .border(@green3e, 2px);
+    background-color: #fff;
+    padding: 20px;
+    .overlay-title { .pr; padding-bottom: 20px; .border-bottom; margin-bottom: 20px; }
+    .overlay-quit { border: none; background-color: #fff; right: 0; }
+}
+
+.container-center { .pf; .size(488px, 250px); margin: auto; }
+
+.overlay-content {
+    .tc;
+    .overlay-text { .ptb(20px, 40px); }
+    .btn + .btn { margin-left: 14px; }
+}
+
+// 代金券弹出层
+.overlay-voucher {  
+    .container-center { height: 480px; overflow-y: auto; }
+    .overlay-container .overlay-title { margin-bottom: 0; }
+    tr { 
+        .border-bottom;
+        &.checked, &:hover { background-color: #f8f8f8; }
+        &.checked a { .btn-payment; .checked; } 
+    }
+    td { .ptbe(20px); }
+
+    .radio {
+        width: 30px;
+        a { 
+            display: inline-block; .btn-payment; .square(18px); margin-left: 8px; 
+        }
+    }
+    // 可以把该定义下的所有样式重用
+    .voucher-value {
+        .owner-main>.voucher-value;
+        margin-left: 0;
+    }
+    .voucher-name { 
+        width: 220px;
+        p { 
+            width: 220px; .plre(20px); .tl; .text-overflow;
+            & + p { color: @gray66; margin-top: 3px; } 
+        } 
+    }
+    .voucher-date { vertical-align: top; padding-top: 28px; }
+    .btn-group { 
+        .tc;
+        margin-top: 20px;
+        .btn + .btn { margin-left: 14px; }  
+    }
+}
+
+
+
+// 个人中心的评价弹出层及物流追踪
+.overlay-owner {
+    .pa;
+    .triangle(40px, 100%, @green3e, 12px);
+    .overlay-container { width: 394px; }
+    .overlay-content { 
+        .tl;
+        li { .mb(20px); } 
+    }
+    // 物流信息的y轴滚动条
+    &.overlay-trace .overlay-content { height: 220px; overflow-y: scroll; }
+    input { .size(100%, 40px); }
+    textarea { .size(100%, 80px); .ptbe(4px); overflow: hidden; }
+    .submit { 
+        .tc; margin-top: 30px; .pr;
+        span { .palt(250px, 12px); } 
+    }
+    .sns-bind { .icon-chk; color: @gray30; }
+
+    .limit-text { .font(@gray84, 12px); .parb(8px, 4px); }
+
+    // 五星评价
+    .start div { 
+        .clearfix;
+        width: 132px; background: url(../images/nuandao.png) no-repeat -200px -80px;
+        a { .text-hide; .fl; .size(25px, 21px); padding-right: 3px; }
+        &.start1 { background-position: -200px -110px; } 
+        &.start2 { background-position: -200px -140px; } 
+        &.start3 { background-position: -200px -170px; } 
+        &.start4 { background-position: -200px -200px; } 
+        &.start5 { background-position: -200px -230px; } 
+    }
+    // 物流追踪信息
+    
+    .item-trace { 
+        .border-bottom; padding-bottom: 20px; font-size: 13px; 
+    }
+    .trace-date { color: @gray66; .mb(2px); }
+}
+
+
+// 页面尾部
+.footer-a {
+    .clearfix;
+    background-color: @gray30;
+    color: @graydf;
+    .ptb(46px, 18px);
+    .nav {
+        .fl;
+        .clearfix;
+        >ul {  
+            .fl;
+            width: 167px;
+            >li { 
+                padding-bottom: 24px;
+                &:first-child {  padding-bottom: 30px;} 
+                >a { color: @gray66; font-size: 13px;
+
+                &:hover {color:#fff;}
+                 }
+            }
+            
+            
+        }
+    }
+    .showto {
+        .fr;
+        .my-news {
+            margin-bottom: 20px;
+            .title { padding-bottom: 28px; }
+            .email {
+                .pr;
+                width:320px;
+                height:54px;
+                background-color: #4b4b4b;
+                >input { 
+                    display: inline-block; .size(248px, 54px);
+                    padding: 0 0 0 15px; border: none; background-color: #434343; 
+                    color:#ccc; font-size: 14px; 
+                }
+                >a { .text-hide; .pa; right: 0; top: 0; .size(72px, 54px); 
+                    > i { .pa; right: 26%; top: 30%;
+                        .text-hide;.size(32px, 22px); .bg-icon(-200px, 0);
+                    }
+                }
+                .checked {
+                    background-color: @green3e; 
+                    cursor: pointer;
+                    > i { 
+                         .bg-icon(-232px, 0);
+                    }
+                }
+                .email-error {
+                    .pa; right: 0; top: 0;
+                    width:320px;
+                    height:54px;
+                    display:none;
+                    border:3px solid #d9534f;
+                    color:#d9534f;
+                    background-color: #fff; 
+                    text-align:center;
+                    height:54px;
+                    line-height:48px;
+                }
+                .email-oked {                   
+                    border:3px solid #56c0a5;
+                    color:#56c0a5;
+                    background: url(../images/nuandao.png) no-repeat -329px -299px;
+                    background-color: #fff; 
+                }
+                .sloading {
+                     display:none;
+                    .pa; left: 120px; top: 25px;
+                    >div {
+                        height:5px;
+                        width:5px;
+                    }
+                }
+            }
+        }
+        .sns-icon {
+            .clearfix;
+
+            li { .fl; 
+                // & + li { margin-left: 24px; }
+                margin-left: 24px;
+                .icon { .size(40px, 40px); .text-hide; .bg-icon; display: inline-block;  }
+                .icon-a { .sns-icon-footer(0); }
+                .icon-b { .sns-icon-footer(-40px); }
+                .icon-c { .sns-icon-footer(-80px); }
+                .icon-d { .sns-icon-footer(-120px); }
+                .icon-f { .sns-icon-footer(-160px); }
+                .icon-g { .sns-icon(0px, -167px, -208px);}
+                .icon-h { .sns-icon(-46px, -167px, -208px); }
+                .icon-weixin {
+                    position:relative;
+                    .qr-weixin {
+                        display:none;
+                        width:105px;
+                        height:105px;
+                        position:absolute;
+                        bottom:58px;
+                        left:-34px;
+                        background: url(../images/QR-weixin.png) center center no-repeat;
+                        background-color:#d4d4d4;
+                        border: 3px solid d4d4d4;
+                        i {
+                            position:absolute;
+                            bottom:-24px;
+                            left:40%;
+                            display:block;
+                            font-size:0;
+                            line-height:0;
+                            height:0;
+                            width:0;
+                            border: 12px solid transparent;
+                            border-top-color: #d4d4d4;
+                        }
+                    }
+                    &:hover {
+                        .qr-weixin {
+                            display:block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: @screen-sm) {
+        .nav { float: none; }
+        
+        .showto {
+            float: none;
+            .clearfix;
+            .my-news { .fl; margin-bottom: 0; }
+            .sns-icon { .fr; margin-top: 40px; }
+        }
+    }
+}
+.footer-b {
+    .clearfix;
+    font-size: 12px;
+    .ptbe(20px);
+    background-color: #fff;
+    .nav { 
+        .fl;
+        padding-left:70px;
+        .bg-icon(-300px, 4px);        
+        ul { .clearfix; margin-bottom: 2px; }
+        li {
+            .fl;
+            & + li:before { content: "|"; .plre(14px); }
+
+        }
+        a { color: @gray30; }
+    }
+    .work { .fr; text-align: right; }
+}
+
+// 客服浮层
+.kefu {
+    height: 0;
+    width: 100%;
+    position: absolute;
+    top: 130px;
+    overflow: visible;
+    .relative {
+        position: relative;
+    }
+    .kefubar {
+        position: absolute;
+        background: url(../images/online-service.png) no-repeat 0 0;
+        height: 99px;
+        width: 37px;
+        right: 0;
+        cursor: pointer;
+    }
+    .kefupop {
+        display:none;
+        position: absolute;
+        right: 0;
+        top: -48px;
+        width:160px;
+        height: auto;
+        padding:40px 20px;
+        color:#d6d6d6;
+        background-color:#303030;
+        font-size: 13px;
+        .kefutop {
+            margin-bottom:30px;
+            h3 {
+                float:left;
+                font-size:14px;
+                padding:0;
+                margin:0;
+                line-height:16px; 
+            }
+            i {
+                float:right;
+                display: block;
+                width:13px;
+                height:13px;
+                font-size:0;
+                line-height:0; 
+                background: url(../images/nuandao.png) no-repeat -347px -351px;
+            }
+        }
+        a { color: @gray66; }
+        p { line-height:22px;}
+        ul {
+            //background: url(../images/kefu-avatar.png) no-repeat center 0;
+            //padding-top:90px;
+            margin:25px auto 50px auto;
+            border-bottom:1px solid #484848;
+            font-size: 12px;
+            li:last-child {
+                padding-bottom:28px;
+                border-bottom:1px solid #090909;            
+            }
+            .kefuicon {
+                text-align:center;
+                padding:10px;
+            }
+            span { 
+                margin-left:20px;
+                height:8px;
+                width:8px;
+                border-radius:8px;
+                border:1px solid #505050;
+                background-color:#5f5f5f;
+                font-size:0;
+                line-height:0;
+                display:inline-block;
+                margin-right:5px;
+                &.online {
+                    border:1px solid #4a927f !important;
+                    background-color:#56c0a5 !important;
+                }
+            }
+        }
+        dl { margin-bottom:30px; line-height:22px;}
+    }
+}
+
+.scrolltop {
+    position: relative;
+    top: -96px;
+    right: -100%;
+    display: block;
+    width:50px;
+    height:50px;    
+    background-color:#a4a4a4;
+    padding-top: 15px;
+    i { 
+        display: block;
+        width:20px;
+        height:12px;
+        font-size:0;
+        line-height:0; 
+        margin: 0 auto;
+        background: url(../images/nuandao.png) no-repeat -200px -22px;
+    }
+}
+
+// 注册页、404页会用到
+.footer-fixed { position: fixed; left: 0; right: 0; bottom: 0; }
+
+// =====================================================================
+// 用于购物车第二步和个人中心的地址管理 20140325
+// 地址清单和添加新地址
+// =====================================================================
+
+// 用margin属性产生的20px间隔
+.leaf-m { 
+    .fl; 
+    .pr; 
+    margin: 0  @grid-gutter-width / 2 @grid-gutter-width; 
+    width: @grid-leaf-width; 
+    .border(@grayed, 2px);
+}
+
+
+// 地址清单
+// 有两处显示，但交互操作却不同
+.address-items {
+    .clearfix;
+    margin-bottom: 20px;
+    >li { 
+        .fl; .pr; 
+        margin: 0  @grid-gutter-width / 2 @grid-gutter-width; 
+        width: @grid-leaf-width;  .border(@grayed, 2px); 
+        height: 180px;
+        padding: 20px 12px;
+        cursor: pointer; 
+        // 默认地址的样式
+        // 购物流程中，选择地址
+        
+        &.default, &.selected, &:hover { border-color: @green3e; }
+        // 当悬浮的时候显示操作按钮
+        &:hover .action a { visibility: visible; }
+    }
+    .item-content { .font(@gray66, 12px); border-top: 1px solid @grayed; margin-top: @grid-gutter-width; 
+        padding-top: @grid-gutter-width;         
+    }
+    // 地址编辑删除入口, 绝对定位到底部 
+    .action { 
+        .pa; bottom: @grid-gutter-width / 2; width: 88%; .font(@gray66, 13px);
+        // 默认地址显示绿色
+        >div { color: @green22; }
+        a { visibility: hidden; .font(@gray66, 13px); }
+    }
+    
+}
+
+// 添加地址表单
+.address-add, .form-control {
+    @label-width: 90px;  
+    margin-bottom: 60px;
+    >dt { 
+        // 默认是关闭，添加.on为开启状态
+        >a { .font(@gray66, 13px); .pr; .icon-chk; .triangle(-14px, 6px, #a9a9a9); .triangle-off; 
+            &.on { .icon-chk-checked; .triangle-on;  }
+        }
+    }
+    >dd { margin-top: 20px; color: @gray51;
+        >label { display: inline-block; width: @label-width; }
+        button { margin-left: @label-width; margin-top: 10px; }
+        input { font-size: 13px; height: 36px;
+            &.address-detail { width: 400px; }
+            &.address-phone { width: 200px; }
+        }
+    }
+}

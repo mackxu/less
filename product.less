@@ -1,0 +1,268 @@
+// 可能从用的函数
+.text-product(@s: @font-size-base, @c: @gray51) { 
+    color: @c;
+    font-size: @s; 
+}
+
+@mb: 87px;
+@product-mb: 30px;
+@prop-label: 45px;
+@prop-img-width: 465px;
+@prop-img-width-sm: 318px;
+
+// 面包屑
+.crumbs {
+    .clearfix;
+    margin-bottom: 20px;
+    >a { 
+        .fl;
+        .font(@gray30, 13px);
+        & + a:before {
+            content: ">";
+            .plre(12px);
+        }  
+    }
+}
+
+.prop {
+    .clearfix;
+    .pr;
+    margin-bottom: @mb;
+    // 商品图片的放大镜效果
+    .prop-img {
+        .fl;
+        .img-show { .clearfix; }
+        .img-show img { 
+            .square(@prop-img-width);
+            @media (max-width: @screen-sm) { .square(@prop-img-width-sm); } }
+    }
+    // .container-product { margin-left: @prop-img-width + @grid-gutter-width * 2; }
+    .container-product {  
+        .fr;
+        width: @container-lg - @prop-img-width - 40px;
+        @media (max-width: @screen-md) { width: @container-md - @prop-img-width - 40px; }
+        @media (max-width: @screen-sm) { width: @container-sm - @prop-img-width-sm - 40px; }
+    }
+    .prop-fields {
+        >dt { .text-product(@font-size-large ,@gray30); margin-bottom: @product-mb / 2 ; }
+        >dd { margin-bottom: @product-mb; 
+            >label { .text-product(13px, @gray84); width: 45px; .fl; padding-top: 5px; }
+        }
+        .brand>a { text-decoration: none; color: @gray84; }
+        .price { 
+            .pr;height:34px;
+            >span { .number(@green3e, 24px); font-weight: bold; }
+            .old { color: @graydf; text-decoration: line-through; padding-left: 18px; }
+            .comment { 
+                .part(0, 0);
+                margin-top: 4px;
+                padding-left: 100px;
+                a { text-decoration: underline; color: @gray51; }
+                i { display: inline-block; .size(92px, 16px); margin-right: 10px; }
+                @media (max-width: @screen-sm) { 
+                    padding-left: 0;
+                    i, a { display: block; .tr; margin-right: 0; } 
+                }
+            }
+        }
+        .story { .text-product(13px, @gray66); 
+            a { text-decoration: underline; color: @green22; }
+            .story-more { display: none; }
+        }
+
+        .color, .size, .num {
+            .clearfix;
+            margin-bottom: 30px;
+            >div { padding-left: 45px; }
+        }
+
+        .color, .size {
+            margin-bottom: 6px;
+            div { .clearfix; }
+            a { 
+                .fl; margin-right: 10px; margin-bottom: 12px;
+                &:hover, &.clicked { .border(@green3e); }
+            }
+        }
+        // 此处定义系列样式，设计图有错误, 所以样式的名字也出错了
+        .color { 
+            a { 
+                padding: 1px;
+                &:hover, &.clicked { .border(@green3e); padding: 0; } 
+            }
+            img { .square(47px); } 
+        }
+        .size a {
+            .plre(8px);
+            min-width: 40px;
+            line-height: 28px;
+            .border(@graydf);
+            text-align: center;
+            color: @gray84;
+            &:hover, &.clicked { border-color: @green3e; }
+        }
+
+        .num >div {
+            .dib-wrap;
+            input, a {
+                .dib;
+                text-align: center;
+                font-size: 14px;
+                .border(@graydf);
+            }
+            >input {  width: 50px; height: 30px; border-left: none; border-right: none; }
+            >a { 
+                height: 30px;
+                line-height: 28px;
+                width: 28px; 
+                background-color: #f6f5f5; 
+                color: @gray51;              
+                &.minus { background-color: #fff; } 
+            }
+        } 
+        >hr { margin-bottom: @product-mb }
+    }// .prop-fields
+    .btn-group, .like { margin-bottom: 30px; }
+    .btn-group { 
+        .fl;
+        >button {
+            width: 148px;
+            line-height: 44px;
+            .font(#eee, 14px);
+            padding: 0;         // reset button
+            background-color: @green22;
+            border: none;
+            & + button { margin-left: 20px; }
+            // 立即购买按钮的背景色
+            &.goto { background-color: @green3e; }
+        }
+    }// .btn-group
+    .like {
+        .fr;
+        line-height: 40px;
+        color: @gray84;
+        >a { width: 50px; height: 44px; background-color: @graydf; display: inline-block; text-align: center; margin-right: @grid-gutter-width / 3;
+            > i { display: inline-block; .square(18px); .bg-icon(0, -130px); margin-top: 14px; 
+                &.checked { background-position: -20px -150px; }
+            }
+        }
+    }
+    @media (max-width: @screen-sm) {
+        .btn-group, .like { float: none; }
+    }
+
+    // 额外的促销通知
+    .extra { padding-left: @grid-gutter-width; .bg-icon(-340px, -67px); height: 22px; }
+    .sns-btn { 
+        .part(0, -20px);
+        >a {          
+            display: inline-block;
+            .size(30px, 20px);
+            .text-hide;
+            &.icon-a { .sns-icon-sm(0) }
+            &.icon-b { .sns-icon-sm(-40px) }
+            &.icon-c { .sns-icon-sm(-80px) }
+            &.icon-d { .sns-icon-sm(-120px) }
+            &.icon-e { .sns-icon-sm(-160px) }
+
+            &:first-child { margin-right: 6px; }
+        } 
+    }
+}
+
+// 商品评价、用户评价
+.feedback-start { .size(100px, 16px); margin-bottom: 14px; }
+.pstart0 { .bg-icon(-100px, -150px); }
+.pstart1 { .bg-icon(-100px, -168px); }
+.pstart2 { .bg-icon(-100px, -186px); }
+.pstart3 { .bg-icon(-100px, -206px); }
+.pstart4 { .bg-icon(-100px, -226px); }
+.pstart5 { .bg-icon(-100px, -246px); }
+
+
+
+.label-header {
+    .border-bottom(2px);
+    margin-bottom: 80px;
+    li { 
+        width: 33%; .fl;
+        &.checked a { .border-bottom(2px, @green3e); color: @green22; margin-bottom: -2px; } 
+    }
+    a { line-height: 40px; width: 100%; display: inline-block; .tc; color: @gray30; }
+}
+.label-container { margin-bottom: 108px; }
+.p-story {
+    line-height: 1.8em;
+    h4 { font-weight: normal; }
+    .p-txt { .font(@gray66, 13px); margin-bottom: 30px; }
+    .p-desc { .font(@gray30, 13px); .clearfix; .mtbe(60px); }
+    .p-img { 
+        .tc;
+        img { .img-responsive(inline-block); } 
+    }
+}
+.p-feedback {
+    .none;
+    dt { color: @gray51; margin-bottom: 110px; .clearfix; .pr; }
+    dd { color: @gray66; margin-bottom: 60px; .clearfix; }
+}
+.custom-item { 
+    width: 252px; .fl;
+    li + li { margin-top: 8px; }
+    img { .square(51px); }
+    a { color: @gray30; } 
+}
+.feedback-count { 
+    .fl;
+    div + div { margin-top: 4px; } 
+}
+.feedback-order { 
+    .parb(0, 0);
+    a { color: @gray51; }
+    &:hover ul { display: block; }
+    ul { 
+        display: none; 
+        .palt(0, 20px);
+        margin-left: 38px;
+        a:hover { color: @green22; }
+    } 
+}
+.orderby { .triangle(0, 6px); padding-right: 18px; }
+.start-count .feedback-start { .mb(0); }
+ 
+.text-lg strong { .font(#a3a3a3, 48px); } 
+.feedback-item { .fl; }
+.feedback-content { 
+    .fl; width: 736px;
+    h4 { .mtb(0, 8px); }
+     
+}
+.feedback-like { .fr; width: 252px; .tr; }
+@media (max-width: @screen-md) {
+    .feedback-content { width: 484px; }     
+}
+@media (max-width: @screen-sm) {
+    .feedback-content { float: none; margin-bottom: 20px; }
+    .feedback-like { 
+        width: auto; float: none; .tl;
+        >div { display: inline-block; }  
+    }     
+}
+// 此处和购物车页重复，有待合并
+.guest-like {   
+    margin-bottom: @mb;
+    >dt { .text-product; margin-bottom: 30px; }
+    >dd {
+        .clearfix;
+        margin-left: 42px;
+        @media (max-width: @screen-md) { margin-left: 0; }
+        @media (max-width: @screen-sm) { margin-left: 42px; }
+        >a {
+            .fl;
+            & + a { margin-left: 20px; }
+        }
+    }
+}
+
+// .index-201404 { .pf; background: url(../images/index-201404.jpg) repeate-x; }
+// body.index-1404 { background: url(../images/index-201404.jpg) center center repeat-x fixed; }
