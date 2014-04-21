@@ -229,7 +229,7 @@
     搜索的弹出层
     登陆弹出层
  */
-.overlay-bg { position: fixed; top: 46px; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.8); }
+.overlay-bg { position: fixed; top: 46px; left: 0; right: 0; bottom: 0; z-index: 2; background: rgba(0, 0, 0, 0.6); }
 // 搜索的弹出层
 .overlay-search { 
     display: none;
@@ -308,7 +308,7 @@
 
 // 代金券弹出层
 .overlay-voucher {  
-    .container-center { height: 480px; overflow-y: auto; }
+    .container-center { height: 380px; overflow-y: auto; }
     .overlay-container .overlay-title { margin-bottom: 0; }
     tr { 
         .border-bottom;

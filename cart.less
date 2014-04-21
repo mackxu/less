@@ -268,7 +268,7 @@
     .designer td { padding-bottom: 0; }
 }
 
-.pay-method {}
+.pay-method { margin-bottom: 60px; }
 
 .clearing { 
     margin-bottom: 32px; padding: 28px 20px 38px; .clearfix; 
@@ -291,9 +291,11 @@
     }
 }
 
-.clear-btns { .fr; margin-bottom: 60px;
+.clear-btns { 
+    .pr; .fr; margin-bottom: 87px;
     .btn { margin-left: 20px; }
 }
+.clear-btns_msg { .part(0, 60px); .text-error; }
 
 
 // ======================================================================
@@ -330,10 +332,9 @@
             >span { display: inline-block; width: 70px; }
             &.payment0 { 
                 .pr;
-                .triangle(46%, 38%, @green3e); .triangle-on;
                 span { margin-right: 140px; }
-                i { .pa; left: 70px; top: 0; }
-                a { color: @gray51; }
+                i { .pa; left: 70px; top: -6px; }
+                a { color: @gray51; .pr; .triangle(-16px, 40%, @green3e); }
             }
         }
         // 订单提交后单击显示选择其他支付方式
@@ -343,13 +344,20 @@
 
 
 
-.more-title { .font(#666, 13px); .mtb(10px, 20px) }
+.payment_more-title { .font(#666, 13px); font-weight: bolder; .mtb(10px, 20px); .pr; .triangle(0, 40%); width: 126px; }
+.more-title { .font(#666, 13px); .mtb(10px, 20px); }
 // 罗列所有支付icon
-.payment { .clearfix;   
-    a { 
-        .fl; .btn-payment; margin-right: 30px; margin-bottom: 20px;
-        &.btn-payment-lg { .btn-payment(9px) } 
+.payment { 
+    .clearfix;   
+    a, label { 
+        .fl; margin-right: 30px; margin-bottom: 20px;
+        img { margin-left: 8px; padding: 2px; .size(131px, 38px); }
+        &.checked img { .border(@green3e, 2px); padding: 0; } 
     }
+}
+.extend .payment label { 
+    margin-right: 12px;
+    img { margin-left: 4px; } 
 }
 .kqian { .payment-lg(-40px) }
 .cfu { .payment-lg(-70px) }
@@ -373,4 +381,14 @@
 .yzheng { .payment(-320px) }
 
 
-// 凑单
+// checkout.html
+.error-txt { 
+    padding-left:10px; 
+    color:#ff5b54; 
+    display:none; 
+    font-size:12px;
+}
+.input-erro { 
+    color:#ff5050; 
+    border-color:#ff5050;
+}
