@@ -2449,6 +2449,11 @@ table {
 .leaf .picon-1.picon-2 {
   background-position: -74px 0;
 }
+.leaf .thumbnail {
+  display: block;
+  width: 232px;
+  height: 232px;
+}
 .leaf .info {
   font-size: 16px;
   margin-top: 18px;
@@ -2463,6 +2468,11 @@ table {
 .leaf .info .title > a {
   color: #515050;
   font-size: 14px;
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .leaf .info .price {
   line-height: 16px;

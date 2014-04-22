@@ -111,13 +111,13 @@
         }
     }
     // 商品展览样式
-    // .thumbnail { display: block; margin-bottom: 18px; }
+    .thumbnail { display: block; .square(232px); }
     .info {
         font-size: @font-size-md;
         margin-top: 18px;
         >li { float: left; }
         .title {  margin-bottom: 12px; width: 100%; }
-        .title>a { color: @gray51; font-size: @font-size-base; }
+        .title>a { color: @gray51; font-size: @font-size-base; display: inline-block; width: 100%; .text-overflow; }
         .price { line-height: 16px; }
         .price-new, .price-old { font-weight: bolder; }
         .price-new { .number; }
