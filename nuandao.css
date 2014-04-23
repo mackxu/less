@@ -2108,7 +2108,7 @@ table {
   position: absolute;
   top: 0;
   width: 100%;
-  overflow: auto;
+  overflow: hidden;
   font-size: 18px;
   line-height: 24px;
   text-align: center;
