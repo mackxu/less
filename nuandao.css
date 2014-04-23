@@ -2134,7 +2134,7 @@ table {
   position: absolute;
   left: 0;
   right: 0;
-  top: 595px;
+  top: 600px;
   text-align: center;
 }
 .dots li {
@@ -2151,8 +2151,10 @@ table {
   background-color: #3ec0a3;
   opacity: 1;
 }
-.dujia {
+.container-ad {
+  margin-top: 515px;
   margin-bottom: 60px;
+  position: relative;
 }
 .dujia:before,
 .dujia:after {
@@ -2189,6 +2191,11 @@ table {
     width: 358px;
   }
 }
+.index-weiboshare {
+  position: absolute;
+  right: 0;
+  top: -60px;
+}
 .container-index-title {
   margin-top: 0;
   margin-bottom: 20px;
@@ -2198,8 +2205,56 @@ table {
   height: 736px;
   margin-bottom: 40px;
 }
+.container-index .item-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  padding: 8px 20px;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+}
+.container-index .item-info li {
+  margin-top: 2px;
+}
+.container-index .item-info a {
+  color: #303030;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  width: 100%;
+}
+.container-index .item-info strong {
+  font-family: "Gothem Medium", "Helvetica Neue", Helvetica, "Microsoft YaHei", Arial, sans-serif;
+  color: #3ec0a3;
+  font-size: 16px;
+}
 .container-index .col {
   position: absolute;
+}
+.container-index .col:hover .item-info {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.container-index .col:hover span {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.container-index .col span {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 3px 6px;
+  color: #ffffff;
+  font-size: 12px;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
 }
 .container-index .col11,
 .container-index .col11 img {
