@@ -27,11 +27,11 @@
         width: 33%;
         min-height: 575px;
 
-        // -o-background-size: 100% 100%;
-        // -ms-background-size: 100% 100%;
-        // -moz-background-size: 100% 100%;
-        // -webkit-background-size: 100% 100%;
-        // background-size: 100% 100%;
+        -o-background-size: 100% 100%;
+        -ms-background-size: 100% 100%;
+        -moz-background-size: 100% 100%;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
         background-position: center;
 
         box-shadow: inset 0 -3px 6px rgba(0,0,0,.1);
@@ -82,16 +82,15 @@
 
 .dujia {
     .clearfix;
-    margin-bottom: 60px;
     >a {
         height: @dujia-height;
         background-position: center;
         float: left;
-        // -o-background-size: 100% 100%;
-        // -ms-background-size: 100% 100%;
-        // -moz-background-size: 100% 100%;
-        // -webkit-background-size: 100% 100%;
-        // background-size: 100% 100%;
+        -o-background-size: 100% 100%;
+        -ms-background-size: 100% 100%;
+        -moz-background-size: 100% 100%;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
         & + a { margin-left: 20px; }
         width: (@container-lg - @grid-gutter-width) / 2;
         @media (max-width: @screen-md) {
@@ -134,106 +133,4 @@
     .col-21 img { .size(484px, @grid-leaf-width); }
     .col-12 img { .size(@grid-leaf-width, 484px); }
     .col-22 img { .square(484px) }
-}
-.container-index-title { .mtb(0, 20px); }
-.colp(@l: 0; @t: 0) {left: @l; top: @t; }
-@col: 252px;
-.container-index { 
-    .pr;
-    height: 736px;
-    margin-bottom: 40px;
-    .col { .pa; }
-    .col11 {
-        &, img { .square(232px); }
-    }
-    .col22 {
-        &, img { .square(484px); }
-    }
-    .col12 {
-        &, img { .size(232px, 484px); }
-    }
-    .col21 {
-        &, img { .size(484px, 232px); }
-    }
-    .col-11-5 { .colp(@col * 4, 0); }
-    .col-11-6 { .colp(@col * 4, 252px); }
-    .col-11-7 { .colp(@col * 4, 504px); }
-    .col-11-5, .col-11-6, .col-11-7 { .hide-md; } 
-}
-.container-index--a {
-    .col-11-1 { .colp; }
-    .col-11-2 { .colp(252px, 0); }
-    .col-11-3 { .colp(0, 504px); }
-    .col-11-4 { .colp(252px, 504px); }
-    
-    .col-22 { .colp(504px, 0); }
-    .col-21-1 { .colp(0, 252px); }
-    .col-21-2 { .colp(504px, 504px); }
-    @media (max-width: @screen-sm) {
-        height: 1008px;
-        .col-11-2 { .colp(0, 252px); }
-        .col-11-3 { .colp(504px, 504px); }
-        .col-11-4 { .colp(0px, 756px); }
-        .col-21-1 { .colp(0, 504px); }
-        .col-21-2 { .colp(252px, 756px); }
-        .col-22 { .colp(252px, 0); }
-    }
-}
-
-
-.container-index--c {
-    .col-11-1 { .colp(0, 252px); }
-    .col-11-2 { .colp(252px, 252px); }
-    .col-11-3 { .colp(504px, 504px); }
-    .col-11-4 { .colp(756px, 504px); }
-    
-    .col-22 { .colp(504px, 0); }
-    .col-21-1 { .colp; }
-    .col-21-2 { .colp(0, 504px); }
-    @media (max-width: @screen-sm) {
-        height: 1008px;
-        .col-11-1 { .colp; }
-        .col-11-2 { .colp(504px, 252px); }
-        .col-11-3 { .colp(504px, 504px); }
-        .col-11-4 { .colp(0px, 756px); }
-        .col-21-1 { .colp(252px, 0); }
-        .col-21-2 { .colp(252px, 756px); }
-        .col-22 { .colp(0, 252px); }
-    }
-}
-
-.container-index--b {
-    .col-11-1 { .colp; }
-    .col-11-2 { .colp(252px, 0); }
-    .col-11-3 { .colp(756px, 0); }
-    .col-11-4 { .colp(756px, 252px); }
-    
-    .col-22 { .colp(0, 252px); }
-    .col-12 { .colp(504px, 0); }
-    .col-21 { .colp(504px, 504px); }
-    @media (max-width: @screen-sm) {
-        height: 1008px;
-        .col-11-3 { .colp(504px, 504px); }
-        .col-11-4 { .colp(504px, 756px); }
-        .col-21 { .colp(0, 756px); }
-    }
-}
-
-.container-index--d {
-    margin-bottom: 112px;
-    .col-11-1 { .colp(504px, 0); }
-    .col-11-2 { .colp(756px, 0); }
-    .col-11-3 { .colp(252px, 252px); }
-    .col-11-4 { .colp(252px, 504px); }
-    
-    .col-22 { .colp(504px, 252px); }
-    .col-12 { .colp(0, 252px); }
-    .col-21 { .colp; }
-    @media (max-width: @screen-sm) {
-        height: 1008px;
-        .col-11-2 { .colp(252px, 252px); }
-        .col-11-3 { .colp(504px, 252px); }
-        .col-11-4 { .colp(0, 756px); }
-        .col-22 { .colp(252px, 504px); }
-    }
 }
