@@ -20,7 +20,7 @@
     background-color: rgba(0, 0, 0, 0.8);
     filter: ~"progid:DXImageTransform.Microsoft.gradient(startcolorstr=#c9000000,endcolorstr=#c9000000)"; /* IE5.5-7 */
     .header-logo {.fl; .size(103px, 25px); .bg-icon(-240px, -40px); }
-    .header-a_hint { .font(#e396ff, 13px); .part(240px, 4px); }
+    .header-a_hint { .font(#e396ff, 13px); .part(290px, 4px); }
     .nav {
         .fr;
         .clearfix;
@@ -32,6 +32,8 @@
                 >strong {
                     background-color: @green3e;
                     .plre(3px);
+                    display: inline-block;
+                    margin-left: 8px;
                 }
             }
             
@@ -134,7 +136,8 @@
 .header-b {
     border-bottom: 1px solid #c7c7c7;
     background-color: #fff;
-    .pr;
+    &.slideDown { top: 46px; }
+    &.slideUp { top: -46px; }
     .nav { .fl; 
         >ul {
             .clearfix;
@@ -232,7 +235,7 @@
     搜索的弹出层
     登陆弹出层
  */
-.overlay-bg { position: fixed; top: 46px; left: 0; right: 0; bottom: 0; background-color: #000; background-color: rgba(0, 0, 0, 0.8); }
+.overlay-bg { position: fixed; top: 46px; left: 0; right: 0; bottom: 0; z-index: 10;  background-color: #000; background-color: rgba(0, 0, 0, 0.8); }
 // 搜索的弹出层
 .overlay-search { 
     display: none;
