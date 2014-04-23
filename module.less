@@ -229,7 +229,7 @@
     搜索的弹出层
     登陆弹出层
  */
-.overlay-bg { position: fixed; top: 46px; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.8); }
+.overlay-bg { position: fixed; top: 46px; left: 0; right: 0; bottom: 0; background-color: #000; background-color: rgba(0, 0, 0, 0.8); }
 // 搜索的弹出层
 .overlay-search { 
     display: none;
@@ -237,7 +237,7 @@
     z-index: 7998; top: 218px;  
 } 
 .content-search { 
-    background-color:#fff; background-color: rgba(255,255,255,0.8); .ptb(48px, 20px); .pr; top: -171px; 
+    background-color:#fff; background-color: rgba(255,255,255,0.8); .ptb(48px, 0); .pr; top: -170px; 
     .head { 
         .pr; margin-left: 30px;
         h2 { padding-left: 30px; .mtb(0, 20px); font-size: 16px; .icon-search-a; }
@@ -252,7 +252,6 @@
         .size(50%, 60px); 
         font-size: 24px; 
         border: none;
-        border-left: 4px solid #ccc;
         background-color: transparent;
         .placeholder(@gray66); 
     }
