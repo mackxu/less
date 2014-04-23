@@ -605,6 +605,13 @@ table {
   height: 25px;
   background: url(../images/nuandao.png) no-repeat -240px -40px;
 }
+.header-a .header-a_hint {
+  color: #e396ff;
+  font-size: 13px;
+  position: absolute;
+  right: 290px;
+  top: 4px;
+}
 .header-a .nav {
   float: right;
   margin-top: 4px;
@@ -635,6 +642,8 @@ table {
   background-color: #3ec0a3;
   padding-left: 3px;
   padding-right: 3px;
+  display: inline-block;
+  margin-left: 8px;
 }
 .header-a .nav > li.menu {
   height: 32px;
@@ -866,7 +875,12 @@ table {
 .header-b {
   border-bottom: 1px solid #c7c7c7;
   background-color: #fff;
-  position: relative;
+}
+.header-b.slideDown {
+  top: 46px;
+}
+.header-b.slideUp {
+  top: -46px;
 }
 .header-b .nav {
   float: left;
@@ -904,6 +918,9 @@ table {
   padding-top: 8px;
   padding-bottom: 8px;
   color: #303030;
+}
+.header-b .nav-limit--color:link {
+  color: #a24ac2;
 }
 .header-b .nav-item {
   display: none;
@@ -1084,6 +1101,7 @@ table {
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 10;
   background-color: #000;
   background-color: rgba(0, 0, 0, 0.8);
 }
@@ -1094,6 +1112,7 @@ table {
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 10;
   background-color: #000;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 7998;
@@ -1171,6 +1190,7 @@ table {
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 10;
   background-color: #000;
   background-color: rgba(0, 0, 0, 0.8);
   padding-top: 120px;
@@ -1219,6 +1239,7 @@ table {
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 10;
   background-color: #000;
   background-color: rgba(0, 0, 0, 0.8);
 }
@@ -2259,23 +2280,23 @@ table {
   -webkit-transition: all 0.8s;
   transition: all 0.8s;
 }
-.container-index .col11,
-.container-index .col11 img {
+.container-index .col-11,
+.container-index .col-11 img {
   width: 232px;
   height: 232px;
 }
-.container-index .col22,
-.container-index .col22 img {
+.container-index .col-22,
+.container-index .col-22 img {
   width: 484px;
   height: 484px;
 }
-.container-index .col12,
-.container-index .col12 img {
+.container-index .col-12,
+.container-index .col-12 img {
   width: 232px;
   height: 484px;
 }
-.container-index .col21,
-.container-index .col21 img {
+.container-index .col-21,
+.container-index .col-21 img {
   width: 484px;
   height: 232px;
 }
