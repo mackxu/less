@@ -103,38 +103,7 @@
     }
 }
 
-// 不知道为什么多了1个像素
-.masonry {
-    width: @container-lg + @grid-gutter-width;
-    @media (max-width: @screen-md) {
-        width: @container-md + @grid-gutter-width + 1px;
-    }
-    @media (max-width: @screen-sm) {
-        width: @container-sm + @grid-gutter-width + 1px;
-    }
-    .item { 
-        margin: 0 10px 20px; float: left;
-        span { .palt(12px, 12px); background-color: rgba(0, 0, 0, 0.5); padding: 3px 6px; .font(#fff, 12px); .transition(all 0.8s;); }
-        &:hover {
-            .item-info { .opacity(1); }
-            span { .opacity(0); }
-        } 
-    }
-    .item-info {
-        .pa; left: 0; right: 0; bottom: 0;
-        padding: 8px 20px;
-        background-color: rgba(255,255,255,0.8);
-        .opacity(0);
-        .transition(all 0.8s;);
-        li { margin-top: 2px; }
-        a { color: @gray30; .text-overflow; display: inline-block; width: 100%; }
-        strong { .number; }
-    }
-    .col-11 img { .square(@grid-leaf-width); }
-    .col-21 img { .size(484px, @grid-leaf-width); }
-    .col-12 img { .size(@grid-leaf-width, 484px); }
-    .col-22 img { .square(484px) }
-}
+
 .container-index-title { .mtb(0, 20px); }
 .colp(@l: 0; @t: 0) {left: @l; top: @t; }
 @col: 252px;
