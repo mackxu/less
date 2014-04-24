@@ -130,11 +130,15 @@
             line-height: 44px;
             .font(#eee, 14px);
             padding: 0;         // reset button
-            background-color: @green22;
+            background-color: #b04cc2;
             border: none;
+            &:hover { background-color: #ce5ce3; }
             & + button { margin-left: 20px; }
             // 立即购买按钮的背景色
-            &.goto { background-color: @green3e; }
+            &.goto { 
+                background-color: @green3e;
+                &:hover { background-color: #48c9b0 } 
+            }
         }
     }// .btn-group
     .like {

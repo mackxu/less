@@ -163,10 +163,16 @@ table { width: 100%; }
 
 // 按钮样式
 .btn, .btn:hover { color: #fff !important; }
-.btn { display:inline-block; background-color: @green3e; font-size: 16px; line-height: 44px; .plre(42px); }
+.btn { 
+    display:inline-block; background-color: @green3e; font-size: 16px; line-height: 44px; .plre(42px); 
+    &:hover { background-color: #48c9b0 }
+}
 .btn-md { line-height: 34px; .plre(16px); font-size: 14px; }
 .btn-sm { line-height: 28px; .plre(16px); font-size: 13px; }
-.btn-gray { background-color: #d9d9d9; }
+.btn-gray { 
+    background-color: #d9d9d9;
+    &:hover { background-color: #e8e8e8; } 
+}
 .btn-load { .text-hide;  }
 
 .btn-loading {

@@ -6,17 +6,23 @@
 
 // 列表页中的商品表单，默认显示，可隐藏
 .list-handle {
+    .pr;
     padding-bottom: 40px;
     .clearfix;
-    >.menubar {
+    .menubar {
         .fl;
         .pr;
-        width: 160px;
-        margin-right: 92px;
         .border(@graydf, 2px);
         text-align: center;
-        padding: 6px 0;      
-        .triangle(10%, 40%);
+        padding: 6px 60px 6px 42px;      
+        .triangle(36px, 40%);
+    }
+    .list-hidden {
+        background-color: @green3e;
+        color: #fff;
+        border: none;
+        padding: 8px 62px 8px 44px;
+        &:after { border-top-color: #fff; }
     }
     .select, .search-desc, .list-info, { line-height: 32px; }
     .select {
@@ -25,16 +31,22 @@
         >ul {
             display: none;
             .pa; left: -2px; right: -2px; top: 32px; 
-            padding: 0 10px;
             z-index: 1; 
             .border(@graydf, 2px); 
             font-size: 13px;
             background-color: #fff; 
         }
+        li:hover { background-color: @grayf6; }
         a { 
-            color: @gray30; display: inline-block; width: 100%; line-height: 28px; 
+            color: @gray30; display: inline-block; width: 100%; line-height: 28px; .plre(10px);
             &:hover { color: @green22; background-color: @grayf6; } 
         }
+    }
+    .select-list { 
+        float: none; .palt(252px, 0);
+        border: none;
+        padding: 2px 12px;
+        &:hover { .border(@graydf, 2px); padding: 0 10px; } 
     }
     .search-desc, .list-info, .list-num { .fr; margin-left: 20px; }
     .search-desc span { color: @green22; .plre(6px); }
