@@ -353,14 +353,16 @@
 // 个人中心的评价弹出层及物流追踪
 .overlay-owner {
     .pa;
-    .triangle(40px, 100%, @green3e, 12px);
+    .triangle(30px, 100%, @green3e, 12px);
     .overlay-container { width: 394px; }
     .overlay-content { 
         .tl;
         li { .mb(20px); } 
     }
-    // 物流信息的y轴滚动条
-    &.overlay-trace .overlay-content { height: 220px; overflow-y: scroll; }
+    &.overlay-owner-bottom { .triangle(30px, -12px, @green3e, 12px); .triangle-off; }
+    // 物流信息和多少人喜欢的y轴滚动条
+    &.overlay-trace .overlay-content { height: 220px; overflow-y: auto; }
+    &.overlay-fond .overlay-content { height: 300px; overflow-y: auto; }
     input { .size(100%, 40px); }
     textarea { .size(100%, 80px); .ptbe(4px); overflow: hidden; }
     .submit { 
@@ -384,11 +386,28 @@
     }
     // 物流追踪信息
     
-    .item-trace { 
+    .item-trace, .item-fond { 
         .border-bottom; padding-bottom: 20px; font-size: 13px; 
     }
     .trace-date { color: @gray66; .mb(2px); }
+
+    // 弹出喜欢列表
+    &.overlay-fond { 
+        right: 0; top: 56px; display: none; 
+        @media (max-width: @screen-sm) {
+            .triangle(74%, -12px, @green3e, 12px); .triangle-off;
+        }
+    }
+    .item-fond { .clearfix; padding-bottom: 14px; margin-bottom: 14px !important; }
+    .item-fond_avatar {  
+        .fl;
+        &, img { .square(70px); }
+    }
+    .item-fond_main { margin-left: 80px; }
 }
+
+
+
 
 
 // 页面尾部

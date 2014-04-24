@@ -122,7 +122,7 @@
         } 
         >hr { margin-bottom: @product-mb }
     }// .prop-fields
-    .btn-group, .like { margin-bottom: 30px; }
+    .btn-group, .like { padding-bottom: 10px; margin-bottom: 20px; }
     .btn-group { 
         .fl;
         >button {
@@ -143,6 +143,7 @@
     }// .btn-group
     .like {
         .fr;
+        .pr;
         line-height: 40px;
         color: @gray84;
         >a { width: 50px; height: 44px; background-color: @graydf; display: inline-block; text-align: center; margin-right: @grid-gutter-width / 3;
@@ -150,6 +151,8 @@
                 &.checked { background-position: -20px -150px; }
             }
         }
+        cursor: pointer;
+        &:hover .overlay-fond { display: block; }
     }
     @media (max-width: @screen-sm) {
         .btn-group, .like { float: none; }
