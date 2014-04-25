@@ -219,6 +219,7 @@
                 &:hover {
                     background-position: -143px 0;
                 }
+                @media (max-width: @screen-sm) { .mlre(124px) }
             }
             .nav-ndblog { 
                 width:187px; height:187px;background: url(../images/nav-item-ndblog.png) 0 10px no-repeat;
@@ -683,6 +684,7 @@
     }
 }
 
+// 回到顶部图标
 .scrolltop {
     position: relative;
     top: -96px;
@@ -692,14 +694,27 @@
     height:50px;    
     background-color:#a4a4a4;
     padding-top: 15px;
-    i { 
-        display: block;
-        width:20px;
-        height:12px;
-        font-size:0;
-        line-height:0; 
-        margin: 0 auto;
-        background: url(../images/nuandao.png) no-repeat -200px -22px;
+    // i { 
+    //     display: block;
+    //     width:20px;
+    //     height:12px;
+    //     font-size:0;
+    //     line-height:0; 
+    //     margin: 0 auto;
+    //     background: url(../images/nuandao.png) no-repeat -200px -22px;
+    // }
+    
+    // 实现空心的三角形 20140425
+    &:before, &:after {
+        content: "";
+        border: 12px solid transparent;
+        border-bottom-color: #fff;
+
+        .palt(14px, 8px);
+    }
+    &:after {
+        border-bottom-color: #a4a4a4;
+        top: 13px;
     }
 }
 

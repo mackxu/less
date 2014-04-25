@@ -42,12 +42,22 @@
             &:hover { color: @green22; background-color: @grayf6; } 
         }
     }
+    // 采用了固定定位布局
     .select-list { 
-        float: none; .palt(252px, 0);
+        float: none; 
+        .palt(252px, 0);
         border: none;
-        padding: 2px 12px;
-        &:hover { .border(@graydf, 2px); padding: 0 10px; } 
+        padding: 2px 6px 2px 12px;
+        &:hover { 
+            .border(@graydf, 2px); padding: 0 10px;
+            &:after { display: inline-block; }
+            .select_checked:after { display: none; } 
+        }
+        &:after { display: none; } 
     }
+    // 选中的下拉选项
+    .select_checked { display: inline-block; .pr; .triangle(-20px, 40%); }
+    
     .search-desc, .list-info, .list-num, .list-handle_pagination { .fr; margin-left: 20px; }
     .search-desc span { color: @green22; .plre(6px); }
     .list-handle_pagination { 
@@ -75,7 +85,7 @@
         >a {
             display: block;
             padding-left: 24px;
-            width: 100%;
+            width: 148px;
             .bg-icon(@check-position-left, @check-position-top);
             .text-overflow;
             // &:hover {
@@ -88,7 +98,7 @@
         }
     }
     .color {
-        width: 200px;
+        width: 188px;
         padding-left: 8px;
         >a {
             display: inline-block;
@@ -131,8 +141,8 @@
         font-size: @font-size-md;
         margin-top: 18px;
         >li { float: left; }
-        .title {  margin-bottom: 12px; width: 100%; }
-        .title>a { color: @gray51; font-size: @font-size-base; display: block; width: 100%; .text-overflow; }
+        .title {  margin-bottom: 8px; width: 100%; }
+        .title>a { color: @gray51; font-size: @font-size-base; display: block; width: 232px; .text-overflow; }
         .price { line-height: 16px; }
         .price-new, .price-old { font-weight: bolder; }
         .price-new { .number; }
@@ -208,12 +218,11 @@
 // 分页样式
 .pagination {
     .fr;
-    a { 
-        .number(@gray30, 14px);   display: block; font-weight: bolder;
-    }
+    a { .number(@gray30, 14px);   display: block; }
     span { 
         .fl; color: @graydf; margin-left: 14px; .border(@graydf); padding: 4px 8px 2px;
-        &:hover a, &.checked a { color: @green22; }
-        &.checked { .border(@green3e); } 
+        &:hover a { color: @green22; }
+        &.checked { .border(@green3e); color: @green22; } 
     } 
 }
+#page_on { .border(@green3e); color: @green22; }
