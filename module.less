@@ -20,7 +20,7 @@
     background-color: rgba(0, 0, 0, 0.8);
     filter: ~"progid:DXImageTransform.Microsoft.gradient(startcolorstr=#c9000000,endcolorstr=#c9000000)"; /* IE5.5-7 */
     .header-logo {.fl; .size(103px, 25px); .bg-icon(-240px, -40px); }
-    .header-a_hint { .font(#e396ff, 13px); .part(290px, 4px); }
+    .header-a_hint { .font(#e396ff, 13px); .part(310px, 4px); }
     .nav {
         .fr;
         .clearfix;
@@ -29,12 +29,7 @@
             .fl;
             .menu-hd {
                 color: #eee;
-                >strong {
-                    background-color: @green3e;
-                    .plre(3px);
-                    display: inline-block;
-                    margin-left: 8px;
-                }
+                
             }
             
             
@@ -57,11 +52,22 @@
             }
             // 头部购物车
             &.mini-cart {
-                .menu-hd>span { .icon-cart; padding-left: 24px; }
+                .menu-hd {
+                    >span { .icon-cart; padding-left: 24px; }
+                    >strong {
+                        background-color: @green3e;
+                        min-width: 22px;
+                        text-align: center;
+                        display: inline-block;
+                        margin-left: 8px;
+                    }
+                }
+
                 .menu-list { 
                     right: -100px; width: 320px;
-                    overflow-y: auto;
+                    height:auto;
                     dl {
+                        overflow-y: auto;
                         div { .fl; }
                         dt, dd { .clearfix;   }
                         dt { padding: 15px 20px 4px 20px; font-size: 11px; border-bottom: 1px solid @graydf; }
@@ -95,10 +101,10 @@
                 .menu-hd>span { 
                     .pr;
                     .icon-avatar-mini;
-                    .plr(28px, 16px);
+                    .plr(28px, 26px);
                     .triangle(0, 40%);
                     display: inline-block;
-                    max-width: 126px;
+                    max-width: 136px;
                     .text-overflow;
                 }
                 img { .palt(0, 0); .square(20px); }
@@ -146,9 +152,10 @@
                 padding-right: 24px; 
                 &:hover {
                     .nav-item { display: block; }
-                    >a { color: @green22; border-bottom: 4px solid @green22; padding-bottom: 4px; }
+                    // border-bottom + padding-bottom  =  8px
+                    >a { color: @green22; border-bottom: 2px solid @green22; padding-bottom: 6px; }
                 }
-                >a { display: block; .ptbe(8px); color: @gray30; }
+                >a { display: block; .ptbe(8px); color: @gray30; letter-spacing: 1px; }
             }
         }
     }// .nav
@@ -178,7 +185,10 @@
             .recommend-nav { .fl;
                 >a { display: block; margin-left: 90px; width: 120px; margin-bottom: 20px; }
             }
-            .recommend-show {.fl; width: 282px; padding-top: 4px;
+            // 当最小屏时隐藏
+            .recommend-show {
+                .fl; width: 282px; padding-top: 4px;
+                @media (max-width: @screen-sm) { display: none; }
                 >a { .fl; margin-bottom: 10px; margin-right: 10px; }
             }
         }
@@ -240,10 +250,14 @@
 .overlay-search { 
     display: none;
     .overlay-bg;
-    z-index: 7998; top: 218px;  
-} 
+    top: 228px;  
+}
+// 向上偏移182px 
+@content-search-h: 182px;
 .content-search { 
-    background-color:#fff; background-color: rgba(255,255,255,0.8); .ptb(48px, 0); .pr; top: -170px; 
+    background-color:#fff; background-color: rgba(255,255,255,0.9); 
+    .pr; top: -@content-search-h; height: @content-search-h;
+    padding-top: 70px; 
     .head { 
         .pr; margin-left: 30px;
         h2 { padding-left: 30px; .mtb(0, 20px); font-size: 16px; .icon-search-a; }
@@ -256,14 +270,16 @@
     .input-search {         
         margin-left: 60px;
         .size(50%, 60px); 
-        font-size: 24px; 
+        font-size: 24px;
+        padding: 0; 
         border: none;
         background-color: transparent;
         .placeholder(@gray66); 
     }
 
 }
-.overlay-quit { .part(20px, 0); padding: 6px; .border; background-color: #eee;
+.overlay-quit { 
+    .part(20px, 0); padding: 6px; .border; background-color: #eee;
     i { display: block; .square(14px); .bg-icon(-140px, -120px); }
 }
 // 登陆弹出层
