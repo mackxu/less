@@ -48,12 +48,16 @@
         padding: 2px 12px;
         &:hover { .border(@graydf, 2px); padding: 0 10px; } 
     }
-    .search-desc, .list-info, .list-num { .fr; margin-left: 20px; }
+    .search-desc, .list-info, .list-num, .list-handle_pagination { .fr; margin-left: 20px; }
     .search-desc span { color: @green22; .plre(6px); }
+    .list-handle_pagination { 
+        .pagination; margin-top: 2px;
+        a { font-weight: normal; } 
+    }
 
 }// .list-handle
 
-// 商品的属性、分列表
+// 商品的属性、分列表的侧边栏
 .list-menu {
     >dt {
         margin-bottom: 30px;
@@ -71,37 +75,35 @@
         >a {
             display: block;
             padding-left: 24px;
+            width: 100%;
             .bg-icon(@check-position-left, @check-position-top);
-            &:hover {
-                background-position: @check-position-left @check-position-top + @check-var;
-            }
-            &.checked { background-position: @check-position-left @check-position-top + @check-var * 2 }
-            & + a {
-                margin-top: 20px;
-            }
+            .text-overflow;
+            // &:hover {
+            //     background-position: @check-position-left @check-position-top + @check-var;
+            // }
+            &:hover, &.checked { background-position: @check-position-left @check-position-top + @check-var * 2 }
+            & + a { margin-top: 14px; }
 
 
         }
     }
     .color {
-        width: 232px;
+        width: 200px;
         padding-left: 8px;
         >a {
             display: inline-block;
             margin-left: 8px;
             border: 1px solid @graydf;
             margin-bottom: 4px;
+            .square(24px);
             &:hover, &.checked {
                 border-color: @green3e;
             }
         }
     }
-    .color > a {
-        .square(32px);
-    }
 }// .list-menu
 
-.container-list { margin-left: @grid-col-width; margin-bottom: 87px; }
+.container-list { margin-left: @grid-col-width; }
 // 商品罗列块
 .leaf {
     padding-left:  (@grid-gutter-width / 2);
@@ -110,7 +112,7 @@
     float: left;
     // Prevent columns from collapsing when empty
     min-height: 1px;
-    .mb(40px);
+    .mb(60px);
     position: relative;
     .picon-1 {
         display:block;
@@ -125,24 +127,22 @@
     // 商品展览样式
     .thumbnail { display: block; .square(232px); }
     .info {
+        .pr;
         font-size: @font-size-md;
         margin-top: 18px;
         >li { float: left; }
         .title {  margin-bottom: 12px; width: 100%; }
-        .title>a { color: @gray51; font-size: @font-size-base; display: inline-block; width: 100%; .text-overflow; }
+        .title>a { color: @gray51; font-size: @font-size-base; display: block; width: 100%; .text-overflow; }
         .price { line-height: 16px; }
         .price-new, .price-old { font-weight: bolder; }
         .price-new { .number; }
         .price-old { .number(@graydf); }
-        .price-new:after { 
-            content: "|"; 
-            .plr(10px, 8px);
-            color: @graydf;
-        }
+        .price-diff { .mlr(10px, 8px); .size(0, 14px); border-left: 2px solid @graydf; display: inline-block;  }
         .like { 
-            float: right;
+            .parb(0, -2px);
             width: 60px; 
-            .number(@gray84); 
+            .number(@gray84);
+            font-size: 15px; 
             padding-right: 24px;  
             text-align: right;
             cursor: pointer; 
@@ -206,8 +206,7 @@
 
 
 // 分页样式
-.pagination { 
-    .mtb(20px, 60px);
+.pagination {
     .fr;
     a { 
         .number(@gray30, 14px);   display: block; font-weight: bolder;

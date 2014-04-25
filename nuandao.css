@@ -2749,7 +2749,8 @@ table {
 }
 .list-handle .search-desc,
 .list-handle .list-info,
-.list-handle .list-num {
+.list-handle .list-num,
+.list-handle .list-handle_pagination {
   float: right;
   margin-left: 20px;
 }
@@ -2757,6 +2758,40 @@ table {
   color: #226f5e;
   padding-left: 6px;
   padding-right: 6px;
+}
+.list-handle .list-handle_pagination {
+  float: right;
+  margin-top: 2px;
+}
+.list-handle .list-handle_pagination a {
+  font-family: "Gothem Medium", "Helvetica Neue", Helvetica, "Microsoft YaHei", Arial, sans-serif;
+  color: #303030;
+  font-size: 14px;
+  display: block;
+  font-weight: bolder;
+}
+.list-handle .list-handle_pagination span {
+  float: left;
+  color: #dfdfdf;
+  margin-left: 14px;
+  border: #dfdfdf 1px solid;
+  padding: 4px 8px 2px;
+}
+.list-handle .list-handle_pagination span.selected {
+  border-color: #3ec0a3;
+}
+.list-handle .list-handle_pagination span:hover a,
+.list-handle .list-handle_pagination span.checked a {
+  color: #226f5e;
+}
+.list-handle .list-handle_pagination span.checked {
+  border: #3ec0a3 1px solid;
+}
+.list-handle .list-handle_pagination span.checked.selected {
+  border-color: #3ec0a3;
+}
+.list-handle .list-handle_pagination a {
+  font-weight: normal;
 }
 .list-menu > dt {
   margin-bottom: 30px;
@@ -2773,19 +2808,21 @@ table {
 .list-menu .list > a {
   display: block;
   padding-left: 24px;
+  width: 100%;
   background: url(../images/nuandao.png) no-repeat -340px -138px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.list-menu .list > a:hover {
-  background-position: -340px -158px;
-}
+.list-menu .list > a:hover,
 .list-menu .list > a.checked {
   background-position: -340px -178px;
 }
 .list-menu .list > a + a {
-  margin-top: 20px;
+  margin-top: 14px;
 }
 .list-menu .color {
-  width: 232px;
+  width: 200px;
   padding-left: 8px;
 }
 .list-menu .color > a {
@@ -2793,18 +2830,15 @@ table {
   margin-left: 8px;
   border: 1px solid #dfdfdf;
   margin-bottom: 4px;
+  width: 24px;
+  height: 24px;
 }
 .list-menu .color > a:hover,
 .list-menu .color > a.checked {
   border-color: #3ec0a3;
 }
-.list-menu .color > a {
-  width: 32px;
-  height: 32px;
-}
 .container-list {
   margin-left: 252px;
-  margin-bottom: 87px;
 }
 .leaf {
   padding-left: 10px;
@@ -2812,7 +2846,7 @@ table {
   width: 252px;
   float: left;
   min-height: 1px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   position: relative;
 }
 .leaf .picon-1 {
@@ -2831,6 +2865,7 @@ table {
   height: 232px;
 }
 .leaf .info {
+  position: relative;
   font-size: 16px;
   margin-top: 18px;
 }
@@ -2844,7 +2879,7 @@ table {
 .leaf .info .title > a {
   color: #515050;
   font-size: 14px;
-  display: inline-block;
+  display: block;
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2867,18 +2902,23 @@ table {
   color: #dfdfdf;
   font-size: 16px;
 }
-.leaf .info .price-new:after {
-  content: "|";
-  padding-left: 10px;
-  padding-right: 8px;
-  color: #dfdfdf;
+.leaf .info .price-diff {
+  margin-left: 10px;
+  margin-right: 8px;
+  width: 0;
+  height: 14px;
+  border-left: 2px solid #dfdfdf;
+  display: inline-block;
 }
 .leaf .info .like {
-  float: right;
+  position: absolute;
+  right: 0;
+  bottom: -2px;
   width: 60px;
   font-family: "Gothem Medium", "Helvetica Neue", Helvetica, "Microsoft YaHei", Arial, sans-serif;
   color: #848484;
   font-size: 16px;
+  font-size: 15px;
   padding-right: 24px;
   text-align: right;
   cursor: pointer;
@@ -3073,8 +3113,6 @@ table {
   top: 27px;
 }
 .pagination {
-  margin-top: 20px;
-  margin-bottom: 60px;
   float: right;
 }
 .pagination a {
