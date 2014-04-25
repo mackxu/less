@@ -238,8 +238,13 @@
         .plre(20px);
         color: @gray30; 
         border-left: 1px solid @graydf; border-right: 1px solid @graydf;
-        span { display: inline-block; padding-left: 30px; .icon-search-b; } 
-    } 
+        span { display: inline-block; padding-left: 30px; .icon-search-b; }
+
+        @media (max-width: @screen-sm) {
+            .plre(8px);
+        } 
+    }
+
 }
 
 /*

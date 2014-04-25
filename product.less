@@ -54,11 +54,9 @@
             >span { .number(@green3e, 24px); font-weight: bold; }
             .old { color: @graydf; text-decoration: line-through; padding-left: 18px; }
             .comment { 
-                .part(0, 0);
-                margin-top: 4px;
-                padding-left: 100px;
+                .parb(0, 0);
                 a { text-decoration: underline; color: @gray51; }
-                i { display: inline-block; .size(92px, 16px); margin-right: 10px; }
+                i { display: inline-block; .size(92px, 15px); margin-right: 10px; }
                 @media (max-width: @screen-sm) { 
                     padding-left: 0;
                     i, a { display: block; .tr; margin-right: 0; } 
@@ -87,6 +85,7 @@
         // 此处定义系列样式，设计图有错误, 所以样式的名字也出错了
         .color { 
             a { 
+                .square(49px);
                 padding: 1px;
                 &:hover, &.clicked { .border(@green3e); padding: 0; } 
             }
@@ -110,7 +109,7 @@
                 font-size: 14px;
                 .border(@graydf);
             }
-            >input {  width: 50px; height: 30px; border-left: none; border-right: none; }
+            >input {  .size(50px, 30px); color: @gray51; border-left: none; border-right: none; }
             >a { 
                 height: 30px;
                 line-height: 28px;
@@ -130,14 +129,14 @@
             line-height: 44px;
             .font(#eee, 14px);
             padding: 0;         // reset button
-            background-color: #b04cc2;
             border: none;
-            &:hover { background-color: #ce5ce3; }
+            background-color: @green3e;
+            &:hover { background-color: #48c9b0 }
             & + button { margin-left: 20px; }
             // 立即购买按钮的背景色
             &.goto { 
-                background-color: @green3e;
-                &:hover { background-color: #48c9b0 } 
+                background-color: #b04cc2;
+                &:hover { background-color: #ce5ce3; } 
             }
         }
     }// .btn-group
@@ -146,17 +145,21 @@
         .pr;
         line-height: 40px;
         color: @gray84;
+        cursor: pointer;
+        &:hover .overlay-fond { display: block; }
         >a { width: 50px; height: 44px; background-color: @graydf; display: inline-block; text-align: center; margin-right: @grid-gutter-width / 3;
             > i { display: inline-block; .square(18px); .bg-icon(0, -130px); margin-top: 14px; 
                 &.checked { background-position: -20px -150px; }
             }
         }
-        cursor: pointer;
-        &:hover .overlay-fond { display: block; }
+        // 点击喜欢时, 背景色为红色
+        .like_checked { background-color: #ff5566; }
+        
     }
     @media (max-width: @screen-sm) {
         .btn-group, .like { float: none; }
     }
+
 
     // 额外的促销通知
     .extra { padding-left: @grid-gutter-width; .bg-icon(-340px, -67px); height: 22px; }
@@ -165,6 +168,7 @@
         >a {          
             display: inline-block;
             .size(30px, 20px);
+            margin-left: 8px;
             .text-hide;
             &.icon-a { .sns-icon-sm(0) }
             &.icon-b { .sns-icon-sm(-40px) }

@@ -1110,6 +1110,12 @@ table {
   padding-left: 30px;
   background: url(../images/nuandao.png) no-repeat -340px -240px;
 }
+@media (max-width: 987px) {
+  .header-b .search {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
 /*
     搜索的弹出层
     登陆弹出层
@@ -3227,9 +3233,7 @@ table {
 .prop .prop-fields .price .comment {
   position: absolute;
   right: 0;
-  top: 0;
-  margin-top: 4px;
-  padding-left: 100px;
+  bottom: 0;
 }
 .prop .prop-fields .price .comment a {
   text-decoration: underline;
@@ -3238,7 +3242,7 @@ table {
 .prop .prop-fields .price .comment i {
   display: inline-block;
   width: 92px;
-  height: 16px;
+  height: 15px;
   margin-right: 10px;
 }
 @media (max-width: 987px) {
@@ -3346,6 +3350,8 @@ table {
   border-color: #3ec0a3;
 }
 .prop .prop-fields .color a {
+  width: 49px;
+  height: 49px;
   padding: 1px;
 }
 .prop .prop-fields .color a:hover,
@@ -3403,6 +3409,7 @@ table {
 .prop .prop-fields .num > div > input {
   width: 50px;
   height: 30px;
+  color: #515050;
   border-left: none;
   border-right: none;
 }
@@ -3433,20 +3440,20 @@ table {
   color: #eeeeee;
   font-size: 14px;
   padding: 0;
-  background-color: #b04cc2;
   border: none;
+  background-color: #3ec0a3;
 }
 .prop .btn-group > button:hover {
-  background-color: #ce5ce3;
+  background-color: #48c9b0;
 }
 .prop .btn-group > button + button {
   margin-left: 20px;
 }
 .prop .btn-group > button.goto {
-  background-color: #3ec0a3;
+  background-color: #b04cc2;
 }
 .prop .btn-group > button.goto:hover {
-  background-color: #48c9b0;
+  background-color: #ce5ce3;
 }
 .prop .like {
   float: right;
@@ -3454,6 +3461,9 @@ table {
   line-height: 40px;
   color: #848484;
   cursor: pointer;
+}
+.prop .like:hover .overlay-fond {
+  display: block;
 }
 .prop .like > a {
   width: 50px;
@@ -3473,8 +3483,8 @@ table {
 .prop .like > a > i.checked {
   background-position: -20px -150px;
 }
-.prop .like:hover .overlay-fond {
-  display: block;
+.prop .like .like_checked {
+  background-color: #ff5566;
 }
 @media (max-width: 987px) {
   .prop .btn-group,
@@ -3496,6 +3506,7 @@ table {
   display: inline-block;
   width: 30px;
   height: 20px;
+  margin-left: 8px;
   font: 0/0 a;
   color: transparent;
   text-shadow: none;
@@ -4003,6 +4014,7 @@ table {
   border: 0;
 }
 .process {
+  margin-top: 20px;
   margin-bottom: 60px;
 }
 .process:before,
@@ -4941,6 +4953,7 @@ table {
   margin-bottom: 20px;
   position: relative;
   width: 126px;
+  cursor: pointer;
 }
 .payment_more-title::after {
   content: "";

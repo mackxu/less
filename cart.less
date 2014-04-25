@@ -15,8 +15,8 @@
 // 购物的一二三步走
 .process {
     .green() { color: @green22; }
-    margin-bottom: 60px;
     .clearfix;
+    .mtb(20px, 60px);
     .one, .two, .three { width: 988px / 3; .fl; .font(#c2c2c2, 16px); }
     .one { .green; }
     .two { .tc; }
@@ -344,7 +344,7 @@
 
 
 
-.payment_more-title { .font(#666, 13px); font-weight: bolder; .mtb(10px, 20px); .pr; .triangle(0, 40%); width: 126px; }
+.payment_more-title { .font(#666, 13px); font-weight: bolder; .mtb(10px, 20px); .pr; .triangle(0, 40%); width: 126px; cursor: pointer; }
 .more-title { .font(#666, 13px); .mtb(10px, 20px); }
 // 罗列所有支付icon
 .payment { 
